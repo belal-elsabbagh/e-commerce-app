@@ -10,9 +10,9 @@ const connectToDb = () => {
     }
 }
 
-connectToDb();
-
 module.exports = {
+    dbConnection: connectToDb(),
     userModel: require('./userModel'),
     productModel: require('./productModel'),
+    orderModel: require('./orderModel')
 }

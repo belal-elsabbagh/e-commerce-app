@@ -43,7 +43,7 @@ class UserServices {
      * 
      * @param {string} email The user's email to search for
      * @throws {NotFoundError} If the user is not found
-     * @returns 
+     * @returns The user's data 
      */
     getUserByEmail = async (email) => {
         let queryResult = await userModel.findOne({ email: email })

@@ -7,4 +7,13 @@ let productSchema = new mongoose.Schema({
     dateCreated: { type: Date, default: Date.now() },
 })
 
+productSchema.static('getTotalPriceOfProducts', async function (productIds) {
+    let totalPrice = 0;
+    for (let i = 0; i < productIds.length; i++) {
+        let product = await this.findById(productIds[i]);
+        totalPrice += product.productPrice;
+    }
+    return totalPrice;
+})
+
 module.exports = mongoose.model('products', productSchema)

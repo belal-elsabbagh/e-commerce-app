@@ -1,17 +1,23 @@
-const AccessControl = require('accesscontrol')
-const { AUTHORIZATION_RESOURCE_NAMES: resource } = require('../config/constants')
-let accessControlObject = new AccessControl(grantsObject);
-accessControlObject
-    .grant(resource.user)
-        .createOwn(resource.order)
-        .readOwn(resource.order)
-        .readAny(resource.product)
-        .readAny(resource.productCategory)
-    .grant(resource.admin)
-        .extend(resource.user)
-        .createAny(resource.product)
-        .createAny(resource.productCategory)
-        .readAny(resource.order)
-        .readAny(resource.user)
+const ac = require('./accessControl')
+const { InternalServerError, ForbiddenError } = require('../middleware/errors');
 
-module.exports = accessControlObject
+/**
+ * 
+ * @param {string} role 
+ * @param {string} action 
+ * @param {string} resource 
+ * @throws {InternalServerError} If the access control fails
+ * @returns {boolean} true if the user has the permission
+ */
+module.exports = async (role, action, resource) => {
+    // if (!ac.hasRole(role)) throw new InternalServerError(`Role \'${role}\' does not exist.`)
+    // if (!ac.hasResource(resource)) throw new InternalServerError(`Resource \'${resource}\' does not exist.`)
+    // if (!ac.hasAction(action)) throw new InternalServerError(`Action \'${action}\' does not exist.`)
+    try {
+        if (!ac.permission({ role: role, action: action, resource: resource }).granted)
+            throw new ForbiddenError(`Role ${role} does not have permission to ${action} ${resource}`)
+        return true
+    } catch (err) {
+        throw err
+    }
+}
