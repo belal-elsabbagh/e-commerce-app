@@ -11,7 +11,7 @@ module.exports = (app) => {
 
     app.get('/users', async (req, res, next) => {
         try {
-            authorize(req.tokenData.role, 'read:any', resource.user)
+            authorize(req.tokenData.user.role, 'read:any', resource.user)
             res.status(200).json(await getUsers())
         }
         catch (err) {
@@ -21,7 +21,7 @@ module.exports = (app) => {
 
     app.get('/users/:id', async (req, res, next) => {
         try {
-            authorize(req.tokenData.role, 'read:any', resource.user)
+            authorize(req.tokenData.user.role, 'read:any', resource.user)
             let result = await getUserById(req.params.id)
             res.status(200).json(result)
         }
@@ -32,7 +32,7 @@ module.exports = (app) => {
 
     app.post('/users', async (req, res, next) => {
         try {
-            authorize(req.tokenData.role, 'create:any', resource.user)
+            authorize(req.tokenData.user.role, 'create:any', resource.user)
             let user = await validate(signupSchema, req.body);
             res.status(201).json(await addUser(user));
         }
@@ -64,7 +64,7 @@ module.exports = (app) => {
 
     app.delete('/users/:userId', async (req, res, next) => {
         try {
-            authorize(req.tokenData.role, 'delete:any', resource.user)
+            authorize(req.tokenData.user.role, 'delete:any', resource.user)
             const userId = req.params.userId
             res.status(200).json(await deleteUser(userId))
         } catch (err) {

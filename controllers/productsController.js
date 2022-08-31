@@ -7,12 +7,13 @@ const { productSchema } = require('../validation').validationSchemas
 /**
  * The products controller
  * @param {Express} app 
+ * 
  */
 module.exports = (app) => {
-
+// TODO - categories
     app.get('/products', async (req, res, next) => {
         try {
-            authorize(req.tokenData.role, 'read:any', resource.product)
+            authorize(req.tokenData.user.role, 'read:any', resource.product)
             res.status(200).json(await getProducts())
         }
         catch (err) {
@@ -22,7 +23,7 @@ module.exports = (app) => {
 
     app.get('/products/:category', async (req, res, next) => {
         try {
-            authorize(req.tokenData.role, 'read:any', resource.product)
+            authorize(req.tokenData.user.role, 'read:any', resource.product)
             res.status(200).json(await getProducts({ category: req.params.category }))
         }
         catch (err) {
