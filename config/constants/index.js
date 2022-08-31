@@ -1,5 +1,5 @@
 module.exports = {
-    HTTP_STATUS_CODES: {
+    STATUS_CODES: {
         Default: 1,
         Success: 200,
         Created: 201,
@@ -12,6 +12,7 @@ module.exports = {
         InternalServerError: 500,
         BadGateway: 502,
         ServiceUnavailable: 503,
+        MongoDuplicateKeyError: 11000,
     },
 
     AUTHORIZATION_RESOURCE_NAMES: {

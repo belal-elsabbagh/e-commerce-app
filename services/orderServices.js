@@ -2,9 +2,13 @@ const { NotFoundError, InternalServerError } = require('../middleware/errors');
 const { orderModel } = require('../models');
 
 class OrderServices {
+    constructor(model) {
+        this.orderModel = model;
+    }
+    
     addOrder = async (orderObject) => {
         try {
-            return await orderModel.create(orderObject);
+            return await this.orderModel.create(orderObject);
         } catch (err) {
             throw err;
         }
@@ -12,7 +16,7 @@ class OrderServices {
 
     getOrders = async (filter = {}) => {
         try {
-            return await orderModel.find(filter);
+            return await this.orderModel.find(filter);
         } catch (err) {
             throw err;
         }
@@ -20,7 +24,7 @@ class OrderServices {
 
     getOrderById = async (orderId) => {
         try {
-            let queryResult = await orderModel.findById(orderId)
+            let queryResult = await this.orderModel.findById(orderId)
             if (queryResult === null) throw new NotFoundError(`Order with id \'${id}\' was not found.`);
             return queryResult;
         } catch (err) {
@@ -32,11 +36,11 @@ class OrderServices {
     updateOrder = async (orderId, updates) => {
         try { 
             this.getOrderById(orderId)
-            return await orderModel.findByIdAndUpdate(orderId, updates)
+            return await this.orderModel.findByIdAndUpdate(orderId, updates)
         } catch (err) { 
             throw err 
         }
     }
 }
 
-module.exports = new OrderServices();
+module.exports = new OrderServices(orderModel);

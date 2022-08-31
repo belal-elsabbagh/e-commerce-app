@@ -1,4 +1,4 @@
-const { addProduct, getProducts } = require('../services').productServices;
+const { addProduct, getProducts, getProductCategories } = require('../services').productServices;
 const { validate } = require('../validation')
 const authorize = require('../auth')
 const { AUTHORIZATION_RESOURCE_NAMES: resource } = require('../config/constants');
@@ -6,11 +6,9 @@ const { productSchema } = require('../validation').validationSchemas
 
 /**
  * The products controller
- * @param {Express} app 
- * 
+ * @param {Express} app
  */
 module.exports = (app) => {
-// TODO - categories
     app.get('/products', async (req, res, next) => {
         try {
             authorize(req.tokenData.user.role, 'read:any', resource.product)
@@ -20,6 +18,16 @@ module.exports = (app) => {
             next(err)
         }
     });
+
+    app.get('/products/categories', async (req, res, next) => {
+        try {
+            authorize(req.tokenData.user.role, 'read:any', resource.product)
+            res.status(200).json(await getProductCategories())
+        }
+        catch (err) {
+            next(err)
+        }
+    })
 
     app.get('/products/:category', async (req, res, next) => {
         try {

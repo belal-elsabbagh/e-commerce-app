@@ -1,7 +1,11 @@
 const { userModel } = require('../models')
 const { NotFoundError, InvalidDuplicateEntryError, NotAuthenticatedError } = require('../middleware/errors')
-const MONGODB_DUPLICATE_KEY_ERR_CODE = 11000
+const { MongoDuplicateKeyError } = require('../config/constants').STATUS_CODES
 class UserServices {
+    constructor(model) {
+        this.userModel = model
+    }
+
     /**
      * 
      * @param {Object} userObject The user object to add to the database
@@ -11,7 +15,7 @@ class UserServices {
         try {
             return await userModel.create(userObject)
         } catch (err) {
-            if (err.code === MONGODB_DUPLICATE_KEY_ERR_CODE) throw new InvalidDuplicateEntryError('Email already exists')
+            if (err.code === MongoDuplicateKeyError) throw new InvalidDuplicateEntryError('Email already exists')
             throw err
         }
     }
@@ -22,19 +26,19 @@ class UserServices {
      * @returns {(Object|Boolean)} The data of the user that was created
      */
     runLoginQuery = async (userObject) => {
-        let queryResult = await userModel.findOne(userObject)
+        let queryResult = await this.userModel.findOne(userObject)
         if (queryResult === null) return false;
         return queryResult
     }
 
     userIdExists = async (userId) => {
-        let queryResult = await userModel.findById(userId)
+        let queryResult = await this.userModel.findById(userId)
         if (queryResult === null) return false;
         return true;
     }
 
     getUserById = async (userId) => {
-        let queryResult = await userModel.findById(userId)
+        let queryResult = await this.userModel.findById(userId)
         if (queryResult === null) throw new NotFoundError(`User with id \'${id}\' was not found`);
         return queryResult;
     }
@@ -46,13 +50,13 @@ class UserServices {
      * @returns The user's data 
      */
     getUserByEmail = async (email) => {
-        let queryResult = await userModel.findOne({ email: email })
+        let queryResult = await this.userModel.findOne({ email: email })
         if (queryResult === null) throw new NotFoundError(`User with email \'${email}\' was not found`);
         return queryResult;
     }
 
     userEmailExists = async (email) => {
-        let queryResult = await userModel.findOne({ email: email })
+        let queryResult = await this.userModel.findOne({ email: email })
         if (queryResult === null) return false;
         return true
     }
@@ -74,7 +78,7 @@ class UserServices {
     deleteUser = async (userId) => {
         try {
             await this.getUserById(userId)
-            return await userModel.findByIdAndDelete(userId)
+            return await this.userModel.findByIdAndDelete(userId)
         } catch (err) {
             throw err
         }
@@ -83,11 +87,11 @@ class UserServices {
     login = async (user) => {
         try {
             let loggedInUser = await this.getLoginResult(user);
-            return userModel.generateToken(loggedInUser)
+            return this.userModel.generateToken(loggedInUser)
         } catch (err) {
             throw err
         }
     }
 }
 
-module.exports = new UserServices();
+module.exports = new UserServices(userModel);
