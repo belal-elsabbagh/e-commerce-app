@@ -1,18 +1,14 @@
 const verifyUserToken = require('./verifyUserToken')
 
-/**
- * 
- * @param {*} req 
- * @param {*} res 
- * @param {*} next 
- * @returns the data from the token
- */
+function getToken(req) {
+    return req.headers.authorization.split(' ')[1];
+}
+
 module.exports = async (req, res, next) => {
     const requestedUrl = req.originalUrl
     if(requestedUrl.includes('/login') || requestedUrl.includes('/signup')) return next();
-    const token = req.headers.authorization.split(' ')[1];
     try {
-        req.tokenData = await verifyUserToken(token);
+        req.tokenData = await verifyUserToken(getToken(req));
         next();
     } catch (err) {
         next(err);

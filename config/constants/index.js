@@ -22,6 +22,4 @@ module.exports = {
         product: 'product',
         productCategory: 'productCategory',
     },
-
-    PRODUCT_CATEGORIES: require('./productCategories'),
 }

@@ -1,0 +1,30 @@
+{
+  "receivedAt": "2022-09-02T20:08:35.050Z",
+  "method": "POST",
+  "url": "/users/login",
+  "params": {},
+  "body": {
+    "email": "admin@gmail.com",
+    "password": "12345678"
+  }
+}
+{
+  "receivedAt": "2022-09-02T20:08:36.366Z",
+  "method": "POST",
+  "url": "/users/login",
+  "params": {},
+  "body": {
+    "email": "admin@gmail.com",
+    "password": "12345678"
+  }
+}
+{
+  "receivedAt": "2022-09-02T20:08:37.452Z",
+  "method": "POST",
+  "url": "/users/login",
+  "params": {},
+  "body": {
+    "email": "admin@gmail.com",
+    "password": "12345678"
+  }
+}
