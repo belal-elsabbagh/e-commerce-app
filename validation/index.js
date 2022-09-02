@@ -1,4 +1,4 @@
-const { ValidationError } = require('../middleware/errors')
+const { errors: { ValidationError } } = require('../types')
 
 module.exports.validationSchemas = {
     userSchemas: require('./userSchema'),

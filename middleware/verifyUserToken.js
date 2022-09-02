@@ -1,6 +1,6 @@
 const { jwtSecretKey } = require('../config');
 const jsonwebtoken = require("jsonwebtoken");
-const { NotAuthenticatedError } = require("../middleware/errors");
+const { errors: { NotAuthenticatedError } } = require("../types");
 module.exports = async (userToken) => {
     try {
         if (!userToken) throw new NotAuthenticatedError('No token provided')

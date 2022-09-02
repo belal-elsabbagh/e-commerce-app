@@ -3,6 +3,7 @@ const authorize = require('../auth')
 const { AUTHORIZATION_RESOURCE_NAMES: resource } = require('../config/constants');
 const { signupSchema, loginSchema } = require('../validation/').validationSchemas.userSchemas
 const { addUser, deleteUser, getUsers, getUserById, login } = require('../services/').userServices
+const { getOrders } = require('../services/').orderServices
 /**
  * The users controller
  * @param {Express} app 
@@ -29,6 +30,16 @@ module.exports = (app) => {
             next(err)
         }
     });
+
+    app.get('/users/:id/orders', async (req, res, next) => {
+        try {
+            authorize(req.tokenData.user.role, 'read:own', resource.order)
+            res.status(200).json(await getOrders({ userId: req.params.id }))
+        }
+        catch (err) {
+            next(err)
+        }
+    })
 
     app.post('/users', async (req, res, next) => {
         try {

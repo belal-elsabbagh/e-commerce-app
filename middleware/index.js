@@ -1,4 +1,5 @@
 module.exports = {
-    errors: require('./errors'),
-    authenticateBearerToken: require('./authenticateBearerToken')
+    errorHandler: require('./errorHandler'),
+    authenticateBearerToken: require('./authenticateBearerToken'),
+    requestLogger: require('./requestLogger')
 }

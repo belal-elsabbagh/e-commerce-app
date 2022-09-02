@@ -2,7 +2,7 @@ let mongoose = require('mongoose')
 let crypto = require('crypto')
 const jsonwebtoken = require("jsonwebtoken");
 const { jwtSecretKey } = require('../config');
-const { InternalServerError } = require('../middleware/errors');
+const { errors: { InternalServerError } } = require('../types');
 
 const hashPassword = (password) => {
     return crypto.createHash('sha256').update(password).digest('hex')
@@ -29,9 +29,10 @@ userSchema.pre('findOne', function (next) {
     next()
 })
 
+
 userSchema.static('generateToken', function (userObject, expiresIn = '1h') {
     try {
-        if(!(userObject._id && userObject.email && userObject.role)) throw new InternalServerError('Failed to generate token from this object')
+        if (!(userObject._id && userObject.email && userObject.role)) throw new InternalServerError('Failed to generate token from this object')
         let data = {
             user: {
                 id: userObject._id,

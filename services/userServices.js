@@ -1,5 +1,5 @@
 const { userModel } = require('../models')
-const { NotFoundError, InvalidDuplicateEntryError, NotAuthenticatedError } = require('../middleware/errors')
+const { errors: {NotFoundError, InvalidDuplicateEntryError, NotAuthenticatedError} } = require('../types')
 const { MongoDuplicateKeyError } = require('../config/constants').STATUS_CODES
 class UserServices {
     constructor(model) {

@@ -1,4 +1,4 @@
-const { NotFoundError, InternalServerError } = require('../middleware/errors');
+const { errors: { NotFoundError, InternalServerError } } = require('../types');
 const { productModel } = require('../models');
 
 class ProductServices {
