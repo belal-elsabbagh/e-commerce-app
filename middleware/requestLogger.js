@@ -1,6 +1,4 @@
-const fs = require('fs').promises;
-const { InternalServerError } = require('../types/errors');
-const noop = () => {};
+const logObjectToFile = require('../lib/logObjectToFile');
 
 module.exports = async function (req, res, next) {
     const toBeLogged = {
@@ -12,7 +10,7 @@ module.exports = async function (req, res, next) {
         body: req.body,
     }
     try {
-        await fs.appendFile(__dirname+"/../log/requests.log", JSON.stringify(toBeLogged, null, 2) + "\n")
+        await logObjectToFile(__dirname+"/../log/requests.log", toBeLogged);
         next();
     } catch (err) {
         console.log(err)
