@@ -1,3 +1,5 @@
+// noinspection JSCheckFunctionSignatures
+
 let mongoose = require('mongoose');
 let productModel = require('./productModel')
 let orderSchema = new mongoose.Schema({

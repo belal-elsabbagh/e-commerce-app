@@ -5,11 +5,4 @@ module.exports = class BaseError extends Error {
         super(message);
         this.code = errCode;
     }
-
-    toJSON() {
-        return {
-            errorCode: this.code,
-            errorMessage: this.message,
-        };
-    }
 }
