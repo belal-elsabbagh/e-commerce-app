@@ -2,7 +2,8 @@ const { errors: { ValidationError } } = require('../types')
 
 module.exports.validationSchemas = {
     userSchemas: require('./userSchema'),
-    productSchema: require('./productSchema')
+    productSchema: require('./productSchema'),
+    orderSchema: require('./orderSchema')
 }
 
 /**

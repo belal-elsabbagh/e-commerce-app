@@ -1,5 +1,5 @@
-const { errors: { NotFoundError, InternalServerError } } = require('../types');
-const { productModel } = require('../models');
+const {errors: {NotFoundError, InternalServerError}} = require('../types');
+const {productModel} = require('../models');
 
 class ProductServices {
     constructor(model) {
@@ -31,20 +31,29 @@ class ProductServices {
     }
 
     getProductById = async (productId) => {
+        let queryResult = undefined
         try {
-            let queryResult = await this.productModel.findById(productId)
-            if (queryResult === null) throw new NotFoundError(`Product with id \'${id}\' was not found.`);
-            return queryResult;
+            queryResult = await this.productModel.findById(productId)
         } catch (err) {
-            if (!(err instanceof NotFoundError)) throw new InternalServerError('Failed to get product by id \'${id}\'.')
-            throw err
+            throw new InternalServerError('Failed to run query to get product by id \'${id}\'.')
         }
+        if (queryResult === null) throw new NotFoundError(`Product with id \'${productId}\' was not found.`);
+        return queryResult;
     }
 
     updateProduct = async (productId, updates) => {
         try {
-            this.getProductById(productId)
-            return await this.productModel.findByIdAndUpdate(productId, updates)
+            await this.getProductById(productId)
+            return await this.productModel.findByIdAndUpdate(productId, updates, {new: true})
+        } catch (err) {
+            throw err
+        }
+    }
+
+    deleteProduct = async (productId) => {
+        try {
+            await this.getProductById(productId)
+            return await this.productModel.findByIdAndDelete(productId)
         } catch (err) {
             throw err
         }

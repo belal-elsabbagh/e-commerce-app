@@ -1,9 +1,8 @@
-const { describe, it, expect, beforeEach, afterEach, beforeAll } = require('@jest/globals');
+const { describe, it, expect} = require('@jest/globals');
 const { STATUS_CODES } = require('../config/constants');
-const BaseTest = require('../types/tests/BaseTest')
 const { validate, validationSchemas: { userSchemas: { signupSchema } } } = require('../validation')
 const verifyUserToken = require('../middleware/verifyUserToken')
-const { addUser, deleteUser, getUsers, getUserByEmail, login } = require('../services').userServices
+const { userServices: { addUser, deleteUser, getUsers, getUserByEmail, login } } = require('../services')
 
 describe('Users Services Test', () => {
 
@@ -44,7 +43,7 @@ describe('Users Services Test', () => {
                 expect(validationResult.email).toEqual(null);
             } catch (err) {
                 expect(err.code).toEqual(STATUS_CODES.ValidationError)
-                expect(err.details[0].message).toMatch(/(?:email)/)
+                expect(err.details[0].message).toMatch(/email/)
             }
         })
 
@@ -54,7 +53,7 @@ describe('Users Services Test', () => {
                 expect(validationResult.email).toEqual(null);
             } catch (err) {
                 expect(err.code).toEqual(STATUS_CODES.ValidationError)
-                expect(err.details[0].message).toMatch(/(?:password)/)
+                expect(err.details[0].message).toMatch(/password/)
             }
         })
 
@@ -64,7 +63,7 @@ describe('Users Services Test', () => {
         it('signup process is successful', async () => {
             try {
                 testUserResult = await addUser(testUserData.validSignupData)
-                expect(res.email).toEqual(testUserData.validSignupData.email)
+                expect(testUserResult.email).toEqual(testUserData.validSignupData.email)
             } catch (err) {
                 expect(err).toBeUndefined()
             }
@@ -96,9 +95,9 @@ describe('Users Services Test', () => {
 
         it('find by email is successful', async () => {
             try {
-                let email = testUserData.validSignupData.email
+                let email = 'admin@gmail.com'
                 const res = await getUserByEmail(email)
-                expect(res.username).toEqual(testUserData.validSignupData.username)
+                expect(res.username).toEqual('lord')
             } catch (err) {
                 expect(err).toBeUndefined()
             }
