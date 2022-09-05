@@ -1,6 +1,10 @@
 const { userModel } = require('../models')
 const { NotFoundError, InvalidDuplicateEntryError, NotAuthenticatedError } = require('../errors')
 const { MongoDuplicateKeyError } = require('../config/constants').STATUS_CODES
+
+/**
+ * 
+ */
 class UserServices {
     constructor(model) {
         this.userModel = model
