@@ -1,5 +1,6 @@
 const { validate } = require('../validation')
 const authorize = require('../auth')
+const {orderSchema} = require('../validation')
 const { getOrders, addOrder, deleteOwnOrder } = require('../services').orderServices;
 const { AUTHORIZATION_RESOURCE_NAMES: resource } = require('../config/constants');
 /**
@@ -21,7 +22,7 @@ module.exports = (app) => {
     app.post('/orders', async (req, res, next) => {
         try {
             authorize(req.tokenData.user.role, 'create:own', resource.order)
-            const newOrder = await validate({
+            const newOrder = await validate(orderSchema, {
                 userId: req.tokenData.user.id,
                 productIds: req.body.productIds,
                 shippingAddress: req.body.shippingAddress,

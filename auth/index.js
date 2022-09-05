@@ -1,5 +1,5 @@
 const ac = require('./accessControl')
-const { errors: { InternalServerError, ForbiddenError } } = require('../types');
+const { InternalServerError, ForbiddenError } = require('../errors');
 
 /**
  * 

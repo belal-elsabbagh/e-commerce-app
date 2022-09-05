@@ -1,4 +1,4 @@
-const {errors: {NotFoundError, InternalServerError, ForbiddenError}} = require('../types');
+const {NotFoundError, InternalServerError, ForbiddenError} = require('../errors');
 const {orderModel} = require('../models');
 
 class OrderServices {
@@ -43,16 +43,24 @@ class OrderServices {
         }
     }
 
+    deleteOrder = async (orderId) => {
+        try {
+            await this.getOrderById(orderId)
+            return await this.orderModel.findByIdAndDelete(orderId)
+        } catch (err) {
+            throw err
+        }
+    }
+
     deleteOwnOrder = async (orderId, userId) => {
         let order = undefined
         try {
             order = await this.getOrderById(orderId)
         } catch (err) {
-            throw new InternalServerError('Failed to get order by id \'${id}\'.')
+            throw err
         }
         if (order.userId !== userId) throw new ForbiddenError('You are not authorized to delete this order.')
         return await this.orderModel.findByIdAndDelete(orderId)
-
     }
 }
 

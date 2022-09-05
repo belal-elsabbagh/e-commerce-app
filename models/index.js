@@ -14,5 +14,6 @@ module.exports = {
     dbConnection: connectToDb(),
     userModel: require('./userModel'),
     productModel: require('./productModel'),
-    orderModel: require('./orderModel')
+    orderModel: require('./orderModel'),
+    categoryModel: require('./categoryModel')
 }

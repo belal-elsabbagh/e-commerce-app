@@ -18,7 +18,7 @@ describe('Products Services Test', () => {
         category: 'new category'
     }
 
-    it("get todos", async () => {
+    it("get products", async () => {
         const res = await getProducts();
         expect(Array.isArray(res)).toBe(true);
     });

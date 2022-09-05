@@ -2,7 +2,7 @@ let mongoose = require('mongoose')
 let crypto = require('crypto')
 const jsonwebtoken = require("jsonwebtoken");
 const { jwtSecretKey } = require('../config');
-const { errors: { InternalServerError } } = require('../types');
+const { InternalServerError } = require('../errors');
 
 const hashPassword = (password) => {
     return crypto.createHash('sha256').update(password).digest('hex')

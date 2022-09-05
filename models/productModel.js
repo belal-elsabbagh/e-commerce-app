@@ -1,14 +1,19 @@
 let mongoose = require('mongoose')
-
+const categoryModel = require('./categoryModel')
+const toObjectId = require('../lib/toObjectId')
+const {NotFoundError} = require("../errors");
 let productSchema = new mongoose.Schema({
     productName: String,
     productPrice: Number,
-    category: String,
-    dateCreated: { type: Date, default: Date.now() },
+    categoryId: mongoose.Schema.Types.ObjectId,
+    dateCreated: {type: Date, default: Date.now()},
 })
 
-productSchema.static('getProductCategories', async function () {
-    return await this.find({}).select('category').distinct('category')
+productSchema.pre('save', async function (next) {
+    let result = await categoryModel.findById(this.categoryId);
+    if (result === null) throw new NotFoundError(`Category with id '${this.categoryId}' was not found.`)
+    this.categoryId = toObjectId(this.categoryId)
+    next();
 })
 
 productSchema.static('getTotalPriceOfProducts', async function (productIds) {

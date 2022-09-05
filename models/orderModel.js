@@ -1,7 +1,7 @@
-// noinspection JSCheckFunctionSignatures
-
 let mongoose = require('mongoose');
 let productModel = require('./productModel')
+const {ForbiddenError} = require("../errors");
+const toObjectIdArray = require('../lib/toObjectIdArray')
 let orderSchema = new mongoose.Schema({
     userId: mongoose.Schema.Types.ObjectId,
     productIds: [mongoose.Schema.Types.ObjectId],
@@ -12,20 +12,17 @@ let orderSchema = new mongoose.Schema({
     status: { type: String, default: 'pending' }
 })
 
-/**
- * 
- * @param {Array.<string>} ids 
- * @returns {Array.<mongoose.Schema.Types.ObjectId>}
- */
-function toObjectId(ids) {
-    if (ids.constructor === Array) return ids.map(mongoose.Types.ObjectId);
-    return [mongoose.Types.ObjectId(ids)];
-}
+
+
+orderSchema.static('orderBelongsToUser', async (orderId, userId) => {
+    let order = await this.findById(orderId)
+    return order.userId === userId
+})
 
 orderSchema.pre('save', async function (next) {
     let order = this;
     order.totalPrice = await productModel.getTotalPriceOfProducts(order.productIds);
-    order.productIds = toObjectId(order.productIds);
+    order.productIds = toObjectIdArray(order.productIds);
     next();
 })
 
