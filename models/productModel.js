@@ -9,11 +9,10 @@ let productSchema = new mongoose.Schema({
     dateCreated: {type: Date, default: Date.now()},
 })
 
-productSchema.pre('save', async function (next) {
-    let result = await categoryModel.findById(this.categoryId);
+productSchema.pre('save', async function () {
+    let result = categoryModel.findById(this.categoryId);
     if (result === null) throw new NotFoundError(`Category with id '${this.categoryId}' was not found.`)
     this.categoryId = toObjectId(this.categoryId)
-    next();
 })
 
 productSchema.static('getTotalPriceOfProducts', async function (productIds) {

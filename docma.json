@@ -1,7 +1,14 @@
 {
     "src": [
-        "./services/*.js",
+        {
+            "my-lib": [
+                "./services/*.js"
+            ]
+        },
         "./README.md"
     ],
+    "jsdoc": {
+        "encoding": "utf8"
+    },
     "dest": "./docs"
 }

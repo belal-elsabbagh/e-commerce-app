@@ -1,7 +1,7 @@
 let mongoose = require('mongoose');
 let productModel = require('./productModel')
-const {ForbiddenError} = require("../errors");
-const toObjectIdArray = require('../lib/toObjectIdArray')
+const toObjectIdOfModel = require('../lib/toObjectIdOfModel')
+const userModel = require("./userModel");
 let orderSchema = new mongoose.Schema({
     userId: mongoose.Schema.Types.ObjectId,
     productIds: [mongoose.Schema.Types.ObjectId],
@@ -21,9 +21,14 @@ orderSchema.static('orderBelongsToUser', async (orderId, userId) => {
 
 orderSchema.pre('save', async function (next) {
     let order = this;
-    order.totalPrice = await productModel.getTotalPriceOfProducts(order.productIds);
-    order.productIds = toObjectIdArray(order.productIds);
-    next();
+    try {
+        order.userId = await toObjectIdOfModel(userModel, order.userId)
+        order.productIds = await Promise.all(order.productIds.map(i =>  toObjectIdOfModel(productModel, i)))
+        order.totalPrice = await productModel.getTotalPriceOfProducts(order.productIds);
+        next();
+    } catch(err) {
+        throw err
+    }
 })
 
 module.exports = mongoose.model('orders', orderSchema)
