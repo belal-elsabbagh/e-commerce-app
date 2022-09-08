@@ -1,14 +1,16 @@
 const {NotFoundError, InternalServerError, ForbiddenError} = require('../errors');
 const {orderModel} = require('../models');
+const {getProductById} = require('./product')
 
 class OrderServices {
-    constructor(model) {
-        this.orderModel = model;
+    constructor() {
+        this.model = orderModel;
     }
 
     addOrder = async (orderObject) => {
         try {
-            return await this.orderModel.create(orderObject);
+            orderObject.products = await Promise.all(orderObject.products.map(async i => await getProductById(i)))
+            return await this.model.create(orderObject)
         } catch (err) {
             throw err;
         }
@@ -16,7 +18,7 @@ class OrderServices {
 
     getOrders = async (filter = {}) => {
         try {
-            return await this.orderModel.find(filter);
+            return await this.model.find(filter);
         } catch (err) {
             throw err;
         }
@@ -25,7 +27,7 @@ class OrderServices {
     getOrderById = async (orderId) => {
         let queryResult = undefined
         try {
-            queryResult = await this.orderModel.findById(orderId)
+            queryResult = await this.model.findById(orderId)
         } catch (err) {
             throw new InternalServerError(`Failed to get order by id \'${orderId}\'.`)
         }
@@ -37,7 +39,7 @@ class OrderServices {
     updateOrder = async (orderId, updates) => {
         try {
             await this.getOrderById(orderId)
-            return await this.orderModel.findByIdAndUpdate(orderId, updates)
+            return await this.model.findByIdAndUpdate(orderId, updates)
         } catch (err) {
             throw err
         }
@@ -46,7 +48,7 @@ class OrderServices {
     deleteOrder = async (orderId) => {
         try {
             await this.getOrderById(orderId)
-            return await this.orderModel.findByIdAndDelete(orderId)
+            return await this.model.findByIdAndDelete(orderId)
         } catch (err) {
             throw err
         }
@@ -60,8 +62,8 @@ class OrderServices {
             throw err
         }
         if (order.userId !== userId) throw new ForbiddenError('You are not authorized to delete this order.')
-        return await this.orderModel.findByIdAndDelete(orderId)
+        return await this.model.findByIdAndDelete(orderId)
     }
 }
 
-module.exports = new OrderServices(orderModel);
+module.exports = new OrderServices();

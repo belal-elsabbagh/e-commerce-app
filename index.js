@@ -1,9 +1,9 @@
 const express = require('express');
-const { usersController, productsController, ordersController } = require('./controllers');
+const { usersController, productsController, ordersController, categoriesController} = require('./controllers');
 const { errorHandler, requestLogger } = require('./middleware')
-const bodyParser = require('body-parser').urlencoded({ extended: false })
+const bodyParser = require('body-parser').json({})
 const { authenticateBearerToken } = require('./middleware')
-const { databaseConnectionUri, apiPort } = require('./config')
+const config = require('./config')
 
 try {
     require('./models')
@@ -11,13 +11,13 @@ try {
     app.use(bodyParser)
     app.use(requestLogger)
     app.use(authenticateBearerToken) // Deactivate to test the api without authentication
-    console.log(`Successfully connected to ${databaseConnectionUri}`);
     usersController(app)
     productsController(app)
     ordersController(app)
+    categoriesController(app)
     app.use(errorHandler)
-    app.listen(apiPort)
-    console.log(`Server started on port ${apiPort}`)
+    app.listen(config.apiPort)
+    console.log(`Server started on port ${config.apiPort}`)
     module.exports = app
 } catch (err) {
     console.error(err);

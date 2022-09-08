@@ -1,9 +1,10 @@
 const {NotFoundError, InternalServerError} = require('../errors');
 const {productModel} = require('../models');
+const {database} = require("../config");
 
 class ProductServices {
-    constructor(model) {
-        this.productModel = model;
+    constructor() {
+        this.productModel = productModel;
     }
 
     addProduct = async (productObject) => {
@@ -14,29 +15,21 @@ class ProductServices {
         }
     }
 
-    getProductCategories = async () => {
-        try {
-            return await this.productModel.getProductCategories();
-        } catch (err) {
-            throw err;
-        }
-    }
-
     getProducts = async (filter = {}) => {
         let queryResult = undefined
         try {
-            queryResult = await this.productModel.find(filter);
+            queryResult = await this.productModel.find(filter).populate(database.collections.category);
+            if (queryResult === null) throw new NotFoundError("No product was found having these parameters")
+            return queryResult
         } catch (err) {
-            throw new InternalServerError('Failed to run query to get product by id \'${id}\'.')
+            throw err
         }
-        if (queryResult === null) throw new NotFoundError("No product was found having these parameters")
-        return queryResult
     }
 
     getProductById = async (productId) => {
         let queryResult = undefined
         try {
-            queryResult = await this.productModel.findById(productId)
+            queryResult = await this.productModel.findById(productId).populate(database.collections.category)
         } catch (err) {
             throw new InternalServerError(`Failed to run query to get product by id \'${productId}\'.`)
         }
@@ -63,4 +56,4 @@ class ProductServices {
     }
 }
 
-module.exports = new ProductServices(productModel);
+module.exports = new ProductServices();

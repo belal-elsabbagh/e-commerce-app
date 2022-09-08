@@ -65,8 +65,8 @@ module.exports = (app) => {
     app.post('/users/login', async (req, res, next) => {
         try {
             let user = await validate(loginSchema, req.body);
-            let userToken = await login(user)
-            res.status(200).json(userToken);
+            let userData = await login(user)
+            res.status(200).json(userData);
         }
         catch (err) {
             next(err)

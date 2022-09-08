@@ -11,6 +11,8 @@ ac.grant(resource.admin)
     .createAny(resource.user)
     .createAny(resource.product)
     .createAny(resource.productCategory)
+    .updateAny(resource.productCategory)
+    .deleteAny(resource.productCategory)
     .readAny(resource.order)
     .readAny(resource.user)
     .deleteAny(resource.user);

@@ -1,7 +1,7 @@
 let mongoose = require('mongoose')
 let crypto = require('crypto')
 const jsonwebtoken = require("jsonwebtoken");
-const { jwtSecretKey } = require('../config');
+const { jwtSecretKey, database} = require('../config');
 const { InternalServerError } = require('../errors');
 
 const hashPassword = (password) => {
@@ -13,8 +13,7 @@ let userSchema = new mongoose.Schema({
     email: String,
     role: { type: String, default: 'user' },
     password: String,
-    timeCreated: { type: Date, default: Date.now() },
-})
+}, { timestamps: true })
 
 userSchema.pre('save', function (next) {
     const user = this
@@ -47,4 +46,5 @@ userSchema.static('generateToken', function (userObject, expiresIn = '1h') {
     }
 })
 
-module.exports = mongoose.model('users', userSchema)
+module.exports.schema = userSchema
+module.exports.model = mongoose.model(database.collections.user, userSchema)

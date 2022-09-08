@@ -1,5 +1,8 @@
+//TODO Use req.query
+
 module.exports = {
-    usersController: require('./usersController'),
-    productsController: require('./productsController'),
-    ordersController: require('./ordersController')
+    usersController: require('./users'),
+    productsController: require('./products'),
+    ordersController: require('./orders'),
+    categoriesController: require('./categories')
 }

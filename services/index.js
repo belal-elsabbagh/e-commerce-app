@@ -1,6 +1,6 @@
 module.exports = {
-    userServices: require('./userServices'),
-    productServices: require('./productServices'),
-    orderServices: require('./orderServices'),
-    categoryServices: require('./categoryServices')
+    userServices: require('./user'),
+    productServices: require('./product'),
+    orderServices: require('./order'),
+    categoryServices: require('./category')
 }

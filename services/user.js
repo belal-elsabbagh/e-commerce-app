@@ -37,13 +37,13 @@ class UserServices {
 
     userIdExists = async (userId) => {
         let queryResult = await this.userModel.findById(userId)
-        if (queryResult === null) return false;
+        if (!queryResult) return false;
         return true;
     }
 
     getUserById = async (userId) => {
         let queryResult = await this.userModel.findById(userId)
-        if (queryResult === null) throw new NotFoundError(`User with id \'${id}\' was not found`);
+        if (!queryResult) throw new NotFoundError(`User with id \'${id}\' was not found`);
         return queryResult;
     }
 
@@ -61,12 +61,12 @@ class UserServices {
 
     userEmailExists = async (email) => {
         let queryResult = await this.userModel.findOne({ email: email })
-        if (queryResult === null) return false;
+        if (!queryResult) return false;
         return true
     }
 
-    getUsers = async () => {
-        return await userModel.find({})
+    getUsers = async (filter = {}) => {
+        return await userModel.find(filter)
     }
 
     getLoginResult = async (user) => {
@@ -90,8 +90,12 @@ class UserServices {
 
     login = async (user) => {
         try {
-            let loggedInUser = await this.getLoginResult(user);
-            return this.userModel.generateToken(loggedInUser)
+            const loggedInUser = await this.getLoginResult(user);
+            const token = this.userModel.generateToken(loggedInUser)
+            return {
+                token: token,
+                user: loggedInUser
+            }
         } catch (err) {
             throw err
         }

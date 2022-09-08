@@ -1,0 +1,141 @@
+{
+  "errorCode": 422,
+  "message": "Failed to validate",
+  "details": [
+    {
+      "message": "\"username\" is required",
+      "path": [
+        "username"
+      ],
+      "type": "any.required",
+      "context": {
+        "label": "username",
+        "key": "username"
+      }
+    }
+  ]
+}
+{
+  "errorCode": 422,
+  "message": "Failed to validate",
+  "details": [
+    {
+      "message": "\"categoryTitle\" is required",
+      "path": [
+        "categoryTitle"
+      ],
+      "type": "any.required",
+      "context": {
+        "label": "categoryTitle",
+        "key": "categoryTitle"
+      }
+    }
+  ]
+}
+{
+  "errorCode": 422,
+  "message": "Failed to validate",
+  "details": [
+    {
+      "message": "\"name\" is required",
+      "path": [
+        "name"
+      ],
+      "type": "any.required",
+      "context": {
+        "label": "name",
+        "key": "name"
+      }
+    }
+  ]
+}
+{
+  "errorCode": 422,
+  "message": "Failed to validate",
+  "details": null
+}
+{
+  "errorCode": 422,
+  "message": "Failed to validate",
+  "details": null
+}
+{
+  "errorCode": 422,
+  "message": "Failed to validate",
+  "details": null
+}
+{
+  "errorCode": 422,
+  "message": "Failed to validate",
+  "details": null
+}
+{
+  "errorCode": 422,
+  "message": "Failed to validate",
+  "details": null
+}
+{
+  "errorCode": 422,
+  "message": "Failed to validate",
+  "details": null
+}
+{
+  "errorCode": 422,
+  "message": "Failed to validate",
+  "details": null
+}
+{
+  "errorCode": 422,
+  "message": "Failed to validate",
+  "details": null
+}
+{
+  "errorCode": 422,
+  "message": "Failed to validate",
+  "details": null
+}
+{
+  "thrownAt": "2022-09-07T21:31:43.457Z",
+  "err": {
+    "errorCode": 422,
+    "message": "Failed to validate",
+    "details": null
+  }
+}
+{
+  "thrownAt": "2022-09-07T21:32:32.502Z",
+  "err": {
+    "errorCode": 422,
+    "message": "Failed to validate",
+    "details": null
+  }
+}
+{
+  "thrownAt": "2022-09-07T21:33:14.485Z",
+  "err": {
+    "errorCode": 422,
+    "message": "Failed to validate",
+    "details": null
+  }
+},
+{
+  "thrownAt": "2022-09-08T08:51:15.919Z",
+  "err": {
+    "errorMessage": "Invalid token",
+    "errorCode": 401
+  }
+},
+{
+  "thrownAt": "2022-09-08T10:28:44.822Z",
+  "err": {
+    "errorMessage": "Invalid token",
+    "errorCode": 401
+  }
+},
+{
+  "thrownAt": "2022-09-08T10:29:03.166Z",
+  "err": {
+    "errorMessage": "Product with id '63190aa65e64934d0e908a35' was not found.",
+    "errorCode": 404
+  }
+},
