@@ -146,3 +146,51 @@
     "errorCode": 401
   }
 },
+{
+  "thrownAt": "2022-09-08T20:07:34.669Z",
+  "err": {
+    "errorMessage": "No document was found having [object Object]",
+    "errorCode": 404
+  }
+},
+{
+  "thrownAt": "2022-09-08T20:08:16.913Z",
+  "err": {
+    "errorMessage": "No document was found having {\"username\":\"ali\"}",
+    "errorCode": 404
+  }
+},
+{
+  "thrownAt": "2022-09-08T20:11:24.766Z",
+  "err": {
+    "errorMessage": "No document was found having this data",
+    "errorCode": 404
+  }
+},
+{
+  "thrownAt": "2022-09-08T20:11:27.038Z",
+  "err": {
+    "errorMessage": "No document was found having this data",
+    "errorCode": 404
+  }
+},
+{
+  "thrownAt": "2022-09-08T20:13:02.128Z",
+  "err": {
+    "errorMessage": "No document was found having this data",
+    "errorCode": 404,
+    "queryData": {
+      "username": "ali"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-08T20:17:07.956Z",
+  "err": {
+    "errorMessage": "No document was found having this data",
+    "errorCode": 404,
+    "queryData": {
+      "username": "ali"
+    }
+  }
+},

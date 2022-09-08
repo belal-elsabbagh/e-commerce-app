@@ -9,7 +9,7 @@ class ProductServices extends BaseService {
 
     async get(filter = {}) {
         const queryResult = await this.model.find(filter).populate('category');
-        if (queryResult === null) throw new NotFoundError("No product was found having these parameters")
+        if (queryResult.length === 0) throw new NotFoundError("No product was found having these parameters", filter)
         return queryResult
     }
 }

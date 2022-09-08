@@ -12,7 +12,7 @@ module.exports = (app) => {
     app.get('/users', async (req, res, next) => {
         try {
             authorize(req.tokenData.user.role, 'read:any', resource.user)
-            res.status(200).json(await userServices.get())
+            res.status(200).json(await userServices.get(req.query))
         }
         catch (err) {
             next(err)

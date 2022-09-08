@@ -5,6 +5,11 @@ module.exports = class BaseService {
         this.model = model
     }
 
+    /**
+     * @throws {InternalServerError}
+     * @param {Object} object
+     * @returns {Promise<*>}
+     */
     async add(object) {
         try {
             return await this.model.create(object);
@@ -13,33 +18,46 @@ module.exports = class BaseService {
         }
     }
 
-    async get(filter) {
+    /**
+     * @throws {NotFoundError}
+     * @param filter
+     * @returns {Promise<*>}
+     */
+    async get(filter = {}) {
         let object = await this.model.find(filter)
-        if (object === null) throw new NotFoundError(`No object was found having ${filter}`)
+        if (object.length === 0) throw new NotFoundError(`No document was found having this data`, filter)
         return object
     }
 
+    /**
+     * @throws {NotFoundError}
+     * @param {String} id
+     * @returns {Promise<*>}
+     */
     async getById(id) {
         let object = await this.model.findById(id)
-        if (object === null) throw new NotFoundError(`No object was found with id \'${id}\'`)
+        if (!object) throw new NotFoundError(`No document was found with this id.`, id)
         return object
     }
 
+    /**
+     * @throws {NotFoundError}
+     * @param id
+     * @param updates
+     * @returns {Promise<*>}
+     */
     async update(id, updates) {
-        try {
-            await this.getById(id);
-            return await this.model.findByIdAndUpdate(id, updates, {new: true})
-        } catch (err) {
-            throw err
-        }
+        await this.getById(id);
+        return await this.model.findByIdAndUpdate(id, updates, {new: true})
     }
 
+    /**
+     * @throws {NotFoundError}
+     * @param id
+     * @returns {Promise<*>}
+     */
     async delete(id) {
-        try {
-            await this.getById(id);
-            return await this.model.findByIdAndDelete(id)
-        } catch (err) {
-            throw err
-        }
+        await this.getById(id);
+        return await this.model.findByIdAndDelete(id)
     }
 }
