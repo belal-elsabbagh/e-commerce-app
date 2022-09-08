@@ -139,3 +139,10 @@
     "errorCode": 404
   }
 },
+{
+  "thrownAt": "2022-09-08T18:59:42.004Z",
+  "err": {
+    "errorMessage": "Invalid token",
+    "errorCode": 401
+  }
+},

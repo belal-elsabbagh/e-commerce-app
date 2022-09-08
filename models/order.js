@@ -10,7 +10,7 @@ let orderSchema = new mongoose.Schema({
     shippingAddress: String,
     totalPrice: {type: Number},
     status: {type: String, default: 'pending'}
-}, {timestamps: true})
+}, {collection: database.collections.order, timestamps: true})
 
 
 orderSchema.static('orderBelongsToUser', async (orderId, userId) => {
@@ -30,4 +30,4 @@ orderSchema.pre('save', async function (next) {
 })
 
 module.exports.schema = orderSchema
-module.exports.model = mongoose.model(database.collections.order, orderSchema)
+module.exports.model = mongoose.model(database.collections.order, orderSchema,database.collections.order)

@@ -1,23 +1,16 @@
 const { userModel } = require('../models')
-const { NotFoundError, InvalidDuplicateEntryError, NotAuthenticatedError } = require('../errors')
+const { InvalidDuplicateEntryError, NotAuthenticatedError } = require('../errors')
+const BaseService = require("./BaseService");
 const { MongoDuplicateKeyError } = require('../config/constants').STATUS_CODES
 
-/**
- * 
- */
-class UserServices {
-    constructor(model) {
-        this.userModel = model
+class UserServices extends BaseService {
+    constructor() {
+        super(userModel);
     }
 
-    /**
-     * 
-     * @param {Object} userObject The user object to add to the database
-     * @returns {Object} The data of the user that was created
-     */
-    addUser = async (userObject) => {
+    async add(userObject) {
         try {
-            return await userModel.create(userObject)
+            return await super.add(userObject)
         } catch (err) {
             if (err.code === MongoDuplicateKeyError) throw new InvalidDuplicateEntryError('Email already exists')
             throw err
@@ -27,79 +20,32 @@ class UserServices {
     /**
      * 
      * @param {Object} userObject The user object to add to the database
-     * @returns {(Object|Boolean)} The data of the user that was created
+     * @throws {NotAuthenticatedError} if the query doesn't find a user with these credentials
+     * @returns {Object} The data of the user that was created
      */
-    runLoginQuery = async (userObject) => {
-        let queryResult = await this.userModel.findOne(userObject)
-        if (queryResult === null) return false;
+    async runLoginQuery(userObject) {
+        let queryResult = await this.model.findOne(userObject)
+        if (queryResult === null) throw new NotAuthenticatedError('Incorrect Credentials to login');
         return queryResult
     }
 
-    userIdExists = async (userId) => {
-        let queryResult = await this.userModel.findById(userId)
-        if (!queryResult) return false;
-        return true;
-    }
-
-    getUserById = async (userId) => {
-        let queryResult = await this.userModel.findById(userId)
-        if (!queryResult) throw new NotFoundError(`User with id \'${id}\' was not found`);
-        return queryResult;
-    }
-
-    /**
-     * 
-     * @param {string} email The user's email to search for
-     * @throws {NotFoundError} If the user is not found
-     * @returns The user's data 
-     */
-    getUserByEmail = async (email) => {
-        let queryResult = await this.userModel.findOne({ email: email })
-        if (queryResult === null) throw new NotFoundError(`User with email \'${email}\' was not found`);
-        return queryResult;
-    }
-
-    userEmailExists = async (email) => {
-        let queryResult = await this.userModel.findOne({ email: email })
-        if (!queryResult) return false;
-        return true
-    }
-
-    getUsers = async (filter = {}) => {
-        return await userModel.find(filter)
-    }
-
-    getLoginResult = async (user) => {
+    async getLoginResult(user) {
         try {
-            let result = await this.runLoginQuery(user);
-            if (result === false) throw new NotAuthenticatedError('Incorrect Credentials to login');
-            return result;
+            return await this.runLoginQuery(user);
         } catch (err) {
             throw err
         }
     }
 
-    deleteUser = async (userId) => {
+    async login(userCredentials) {
         try {
-            await this.getUserById(userId)
-            return await this.userModel.findByIdAndDelete(userId)
-        } catch (err) {
-            throw err
-        }
-    }
-
-    login = async (user) => {
-        try {
-            const loggedInUser = await this.getLoginResult(user);
-            const token = this.userModel.generateToken(loggedInUser)
-            return {
-                token: token,
-                user: loggedInUser
-            }
+            const user = await this.getLoginResult(userCredentials);
+            const token = this.model.generateToken(user)
+            return { token, user }
         } catch (err) {
             throw err
         }
     }
 }
 
-module.exports = new UserServices(userModel);
+module.exports = new UserServices();

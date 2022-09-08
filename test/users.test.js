@@ -2,7 +2,7 @@ const { describe, it, expect} = require('@jest/globals');
 const { STATUS_CODES } = require('../config/constants');
 const { validate, validationSchemas: { userSchemas: { signupSchema } } } = require('../validation')
 const verifyUserToken = require('../middleware/verifyUserToken')
-const { userServices: { addUser, deleteUser, getUsers, getUserByEmail, login } } = require('../services')
+const { userServices: { addUser, deleteUser, getUsers, login } } = require('../services')
 
 describe('Users Services Test', () => {
 
@@ -88,16 +88,6 @@ describe('Users Services Test', () => {
             try {
                 const res = await getUsers()
                 expect(res).toBeDefined()
-            } catch (err) {
-                expect(err).toBeUndefined()
-            }
-        })
-
-        it('find by email is successful', async () => {
-            try {
-                let email = 'admin@gmail.com'
-                const res = await getUserByEmail(email)
-                expect(res.username).toEqual('lord')
             } catch (err) {
                 expect(err).toBeUndefined()
             }

@@ -7,7 +7,10 @@ let productSchema = new mongoose.Schema({
     name: String,
     price: Number,
     category: {type: mongoose.Schema.Types.ObjectId, ref: database.collections.category},
-}, { timestamps: true })
+}, {
+    collection: database.collections.product,
+    timestamps: true
+})
 
 productSchema.pre('save', async function () {
     let result = categoryModel.findById(this.categoryId);
@@ -22,4 +25,4 @@ productSchema.static('getTotalPriceOfProducts', async function (products) {
 })
 
 module.exports.schema = productSchema
-module.exports.model = mongoose.model(database.collections.product, productSchema)
+module.exports.model = mongoose.model(database.collections.product, productSchema, database.collections.product)

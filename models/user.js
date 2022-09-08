@@ -13,7 +13,7 @@ let userSchema = new mongoose.Schema({
     email: String,
     role: { type: String, default: 'user' },
     password: String,
-}, { timestamps: true })
+}, { collection: database.collections.user, timestamps: true })
 
 userSchema.pre('save', function (next) {
     const user = this
@@ -47,4 +47,4 @@ userSchema.static('generateToken', function (userObject, expiresIn = '1h') {
 })
 
 module.exports.schema = userSchema
-module.exports.model = mongoose.model(database.collections.user, userSchema)
+module.exports.model = mongoose.model(database.collections.user, userSchema, database.collections.user)
