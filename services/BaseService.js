@@ -20,7 +20,7 @@ module.exports = class BaseService {
 
     /**
      * @throws {NotFoundError}
-     * @param filter
+     * @param {Object} filter
      * @returns {Promise<*>}
      */
     async get(filter = {}) {

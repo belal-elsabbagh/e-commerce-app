@@ -1,15 +1,18 @@
 const { STATUS_CODES } = require('../config/constants')
 module.exports = class BaseError extends Error {
     code = STATUS_CODES.Default;
-    constructor(message, errCode = STATUS_CODES.Default) {
+    details = {}
+    constructor(message, errCode = STATUS_CODES.Default, details = {}) {
         super(message);
+        this.details = details
         this.code = errCode;
     }
 
     toJSON() {
         return {
-            errorMessage: this.message,
-            errorCode: this.code
+            errorCode: this.code,
+            message: this.message,
+            details: this.details,
         }
     }
 }

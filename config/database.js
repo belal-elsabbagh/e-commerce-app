@@ -25,23 +25,25 @@ function getDbUri(dbConfig) {
     return `mongodb+srv://${dbConfig.dbUsername}:${dbConfig.dbPassword}@${dbConfig.clusterUri}/${dbConfig.dbName}`
 }
 
-const databaseConnectionUri = getDbUri(DATABASE_CONFIGURATION_VARIABLES)
+const uri = getDbUri(DATABASE_CONFIGURATION_VARIABLES)
 
 const connectToDb = () => {
     try {
-        mongoose.connect(databaseConnectionUri).then(() => {
-            console.log(`Successfully connected to ${databaseConnectionUri}`);
+        console.log("Connecting to database...")
+        mongoose.connect(uri).then(() => {
+            console.log(`Successfully connected to ${uri}`);
         })
         return true
     } catch (err) {
         throw err
     }
 }
-
-connectToDb();
-
+const status = connectToDb();
 module.exports = {
-    databaseConnectionUri,
+    connection: {
+        uri,
+        status
+    },
     collections: {
         product: 'Product',
         user: 'User',
