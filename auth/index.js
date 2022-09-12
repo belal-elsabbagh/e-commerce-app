@@ -1,12 +1,20 @@
 const ac = require('./accessControl')
 const {ForbiddenError} = require('../errors');
 
-function getIdErrorMessage(userId) {
+function idErrorMessage(userId) {
     return `ID '${userId}' does not match your authentication data`
 }
 
-function getPermissionErrorMessage(role, action, resource) {
-    return `Role ${role} does not have permission to ${action} ${resource}`
+function permissionErrorMessage(userTokenData, action, resource) {
+    return `User ${userTokenData.user.id} does not have permission to ${action.replace(/:/, " ")} ${resource}`
+}
+
+function getPermission(role, action, resource) {
+    return ac.permission({role, action, resource}).granted
+}
+
+function checkIdWithToken(userTokenData, userId) {
+    return userTokenData.user.id !== userId && userId !== null
 }
 
 /**
@@ -14,15 +22,15 @@ function getPermissionErrorMessage(role, action, resource) {
  * @param {Object} userTokenData
  * @param {String} action
  * @param {String} resource
- * @param {?String} userId
+ * @param {String|null} userId
  * @throws {ForbiddenError} If the user is denied access
  * @returns {boolean} true if the user has the permission
  */
 module.exports = async (userTokenData, action, resource, userId = null) => {
     const {role} = userTokenData.user
-    const idCheck = userTokenData.user.id !== userId && userId !== null
-    if (!idCheck) throw new ForbiddenError(getIdErrorMessage(userId))
-    const permissionCheck = ac.permission({role, action, resource}).granted
-    if (!permissionCheck) throw new ForbiddenError(getPermissionErrorMessage(role, action, resource))
+    const idCheck = checkIdWithToken(userTokenData, userId)
+    if (!idCheck) throw new ForbiddenError(idErrorMessage(userId))
+    const permissionCheck = getPermission(role, action, resource)
+    if (!permissionCheck) throw new ForbiddenError(permissionErrorMessage(userTokenData, action, resource))
     return true
 }
