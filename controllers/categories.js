@@ -12,7 +12,7 @@ module.exports = (app) => {
     app.get('/categories', async (req, res, next) => {
         try {
             authorize(req.tokenData.user.role, 'read:any', resource.product)
-            res.status(200).json(await categoryServices.get())
+            res.status(200).json(await categoryServices.get(req.query))
         } catch (err) {
             next(err)
         }

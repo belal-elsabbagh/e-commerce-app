@@ -13,7 +13,7 @@ module.exports = (app) => {
     app.get('/orders', async (req, res, next) => {
         try {
             authorize(req.tokenData.user.role, 'read:any', resource.order)
-            res.status(200).json(await getOrders())
+            res.status(200).json(await getOrders(req.query))
         }
         catch (err) {
             next(err)
@@ -22,7 +22,7 @@ module.exports = (app) => {
 
     app.get('/users/:userId/orders', async (req, res, next) => {
         try {
-            authorize(req.tokenData.user.role, 'read:own', resource.order)
+            authorize(req.tokenData.user.role, 'read:own', resource.order, req.params.userId)
             res.status(200).json(await getOrders({userId: new mongoose.Types.ObjectId(req.params.userId)}))
         }
         catch (err) {
@@ -32,7 +32,7 @@ module.exports = (app) => {
 
     app.post('/users/:userId/orders', async (req, res, next) => {
         try {
-            authorize(req.tokenData.user.role, 'create:own', resource.order)
+            authorize(req.tokenData.user.role, 'create:own', resource.order, req.params.userId)
             const parsedOrderData = {
                 userId: req.params.userId,
                 products: req.body.products,
@@ -48,7 +48,7 @@ module.exports = (app) => {
 
     app.delete('/users/:userId/orders/:id', async (req, res, next) => {
         try {
-            authorize(req.tokenData.user.role, 'delete:own', resource.order)
+            authorize(req.tokenData.user.role, 'delete:own', resource.order, req.params.userId)
             res.status(200).json(await deleteOwnOrder(req.params.id, req.tokenData.user.id));
         }
         catch (err) {

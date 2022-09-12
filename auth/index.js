@@ -1,23 +1,28 @@
 const ac = require('./accessControl')
-const { InternalServerError, ForbiddenError } = require('../errors');
+const {ForbiddenError} = require('../errors');
+
+function getIdErrorMessage(userId) {
+    return `ID '${userId}' does not match your authentication data`
+}
+
+function getPermissionErrorMessage(role, action, resource) {
+    return `Role ${role} does not have permission to ${action} ${resource}`
+}
 
 /**
- * 
- * @param {string} role 
- * @param {string} action 
- * @param {string} resource 
- * @throws {InternalServerError} If the access control fails
+ *
+ * @param {Object} userTokenData
+ * @param {String} action
+ * @param {String} resource
+ * @param {?String} userId
+ * @throws {ForbiddenError} If the user is denied access
  * @returns {boolean} true if the user has the permission
  */
-module.exports = async (role, action, resource) => {
-    // if (!ac.hasRole(role)) throw new InternalServerError(`Role \'${role}\' does not exist.`)
-    // if (!ac.hasResource(resource)) throw new InternalServerError(`Resource \'${resource}\' does not exist.`)
-    // if (!ac.hasAction(action)) throw new InternalServerError(`Action \'${action}\' does not exist.`)
-    try {
-        if (!ac.permission({ role: role, action: action, resource: resource }).granted)
-            throw new ForbiddenError(`Role ${role} does not have permission to ${action} ${resource}`)
-        return true
-    } catch (err) {
-        throw err
-    }
+module.exports = async (userTokenData, action, resource, userId = null) => {
+    const {role} = userTokenData.user
+    const idCheck = userTokenData.user.id !== userId && userId !== null
+    if (!idCheck) throw new ForbiddenError(getIdErrorMessage(userId))
+    const permissionCheck = ac.permission({role, action, resource}).granted
+    if (!permissionCheck) throw new ForbiddenError(getPermissionErrorMessage(role, action, resource))
+    return true
 }

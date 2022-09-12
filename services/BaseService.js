@@ -25,7 +25,7 @@ module.exports = class BaseService {
      */
     async get(filter = {}) {
         let object = await this.model.find(filter)
-        if (object.length === 0) throw new NotFoundError(`No document was found having this data`, filter)
+        if (object.length === 0) throw new NotFoundError(`Nothing was found having this data`, filter)
         return object
     }
 
@@ -36,7 +36,7 @@ module.exports = class BaseService {
      */
     async getById(id) {
         let object = await this.model.findById(id)
-        if (!object) throw new NotFoundError(`No document was found with this id.`, id)
+        if (!object) throw new NotFoundError(`Nothing was found with this id.`, {id})
         return object
     }
 

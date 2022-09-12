@@ -9,12 +9,8 @@ class OrderServices extends BaseService {
     }
 
     async add(orderObject) {
-        try {
-            orderObject.products = await Promise.all(orderObject.products.map(async i => await getProductById(i)))
-            return await this.model.create(orderObject)
-        } catch (err) {
-            throw err;
-        }
+        orderObject.products = await Promise.all(orderObject.products.map(async i => await getProductById(i)))
+        return await this.model.create(orderObject)
     }
 
     async deleteOwnOrder(orderId, userId) {
