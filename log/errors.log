@@ -194,3 +194,69 @@
     }
   }
 },
+{
+  "thrownAt": "2022-09-12T11:31:06.679Z",
+  "err": {
+    "errorCode": 500,
+    "message": "Failed to run query to create object",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-12T11:32:06.716Z",
+  "err": {
+    "errorCode": 500,
+    "message": "Failed to run query to create object",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-12T11:32:18.995Z",
+  "err": {
+    "errorCode": 500,
+    "message": "Failed to run query to create object",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-12T11:33:06.522Z",
+  "err": {
+    "errorCode": 500,
+    "message": "Failed to run query to create object",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-12T11:33:49.746Z",
+  "err": {
+    "errorCode": 409,
+    "message": "Email already exists",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-12T11:34:31.980Z",
+  "err": {
+    "errorCode": 409,
+    "message": "Email already exists",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-12T11:36:29.188Z",
+  "err": {
+    "errorCode": 409,
+    "message": "email already exists",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-12T11:40:09.285Z",
+  "err": {
+    "errorCode": 409,
+    "message": "email already exists",
+    "details": {
+      "status": "none"
+    }
+  }
+},

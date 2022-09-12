@@ -1,26 +1,10 @@
 const {userModel} = require('../models')
 const {InvalidDuplicateEntryError, NotAuthenticatedError} = require('../errors')
 const BaseService = require("./BaseService");
-const {MongoDuplicateKeyError} = require('../config/constants').STATUS_CODES
 
 class UserServices extends BaseService {
     constructor() {
         super(userModel);
-    }
-
-    /**
-     * @override The method will throw an exception if the new user's email already exists
-     * @param userObject
-     * @throws {InvalidDuplicateEntryError}
-     * @returns {Promise<*|undefined>}
-     */
-    async add(userObject) {
-        try {
-            return await super.add(userObject)
-        } catch (err) {
-            if (err.code === MongoDuplicateKeyError) throw new InvalidDuplicateEntryError('Email already exists')
-            throw err
-        }
     }
 
     /**

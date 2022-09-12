@@ -1,4 +1,5 @@
-const {InternalServerError, NotFoundError} = require("../errors");
+const {InternalServerError, NotFoundError, InvalidDuplicateEntryError} = require("../errors");
+const {MongoDuplicateKeyError} = require('../config/constants').STATUS_CODES
 
 module.exports = class BaseService {
     constructor(model) {
@@ -14,6 +15,10 @@ module.exports = class BaseService {
         try {
             return await this.model.create(object);
         } catch (err) {
+            if (err.code === MongoDuplicateKeyError) {
+                const duplicateMessage = `${Object.keys(err.keyPattern)} already exists`
+                throw new InvalidDuplicateEntryError(duplicateMessage)
+            }
             throw new InternalServerError("Failed to run query to create object")
         }
     }

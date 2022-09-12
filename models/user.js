@@ -10,7 +10,7 @@ const hashPassword = (password) => {
 
 let userSchema = new mongoose.Schema({
     username: String,
-    email: String,
+    email: {type: String, unique: true},
     role: { type: String, default: 'user' },
     password: String,
 }, { collection: database.collections.user, timestamps: true })
