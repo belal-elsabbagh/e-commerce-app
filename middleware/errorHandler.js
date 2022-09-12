@@ -1,4 +1,4 @@
-const logObjectToFile = require('../lib/logObjectToFile');
+const logObjectToFile = require('../log');
 const {BaseError} = require('../errors');
 module.exports = async (err, req, res, next) => {
     if (!(err instanceof BaseError)) return next(err);

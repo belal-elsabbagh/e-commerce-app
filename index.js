@@ -23,10 +23,10 @@ try {
     ordersController(app)
     categoriesController(app)
     app.use(errorHandler)
-    app.listen(config.server.port,config.server.host)
+    app.listen(config.server.port, config.server.host)
     console.log(`Server started on http://${config.server.host}:${config.server.port}`)
 } catch (err) {
     console.error(err);
-    process.exit(1)
+    process.exit(600)
 }
 module.exports = app

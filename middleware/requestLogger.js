@@ -1,4 +1,4 @@
-const logObjectToFile = require('../lib/logObjectToFile');
+const logObjectToFile = require('../log');
 
 module.exports = async function (req, res, next) {
     const toBeLogged = {

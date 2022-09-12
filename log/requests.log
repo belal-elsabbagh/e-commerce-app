@@ -730,3 +730,13 @@
   "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxYTQxMzNlZjlhYjRhMWQ2YmNjMjQ1IiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwidG9rZW5UaW1lQ3JlYXRlZCI6MTY2MjY2NzQzMzY2MywiaWF0IjoxNjYyNjY3NDMzLCJleHAiOjE2NjI2NzEwMzN9.swQ8QsYxW0eX-0pMwOvNyCsW5pAWvm0ynYqVBMbwuH0",
   "body": {}
 },
+{
+  "receivedAt": "2022-09-12T11:03:03.799Z",
+  "method": "POST",
+  "url": "/users/login",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxOTA5NjU3NTkzM2Q4MTY1OTBmOGUxIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwidG9rZW5UaW1lQ3JlYXRlZCI6MTY2MjU4NTIwNjk1MiwiaWF0IjoxNjYyNTg1MjA2LCJleHAiOjE2NjI1ODg4MDZ9.O7NiNOnLKpEXXdCyP3YlGgQhAcZ7xvSoDTzmpO6qRhE",
+  "body": {
+    "email": "belal@gmail.com",
+    "password": "12345678"
+  }
+},
