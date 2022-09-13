@@ -2,7 +2,7 @@ const {validate} = require('../validation')
 const authorize = require('../auth')
 const {validationSchemas: {orderSchema}} = require('../validation')
 const {orderServices} = require('../services');
-const {AUTHORIZATION_RESOURCE_NAMES: resource} = require('../config/constants');
+const {constants: {AUTHORIZATION_RESOURCE_NAMES: resource}} = require('../config');
 const mongoose = require("mongoose");
 /**
  * The users controller

@@ -1,4 +1,4 @@
-module.exports = {
+const constants = {
     STATUS_CODES: {
         Default: 1,
         Success: 200,
@@ -27,10 +27,10 @@ module.exports = {
      * The data needed to connect to the database.
      *
      * @typedef {Object} DbConfig
-     * @property {string} username - The username for the database
-     * @property {string} password - The password for the database
-     * @property {string} clusterUri - The cluster uri for the database
-     * @property {string} name - The name of the database
+     * @property {String} username - The username for the database
+     * @property {String} password - The password for the database
+     * @property {String} clusterUri - The cluster uri for the database
+     * @property {String} name - The name of the database
      */
     DATABASE_CONFIGURATION_VARIABLES: {
         username: 'prime-user',
@@ -39,3 +39,5 @@ module.exports = {
         name: 'e-commerce'
     }
 }
+Object.freeze(constants)
+module.exports = constants

@@ -1,5 +1,5 @@
 const AccessControl = require('accesscontrol')
-const { AUTHORIZATION_RESOURCE_NAMES: resource } = require('../config/constants');
+const {constants: {AUTHORIZATION_RESOURCE_NAMES: resource}} = require('../config');
 let ac = new AccessControl()
 ac.grant(resource.user)
     .createOwn(resource.order)

@@ -1,6 +1,4 @@
-const {describe, it, expect, afterAll, beforeAll} = require('@jest/globals');
-const {STATUS_CODES} = require('../config/constants');
-const {validate, validationSchemas: {orderSchema}} = require('../validation')
+const {describe, it, expect, beforeAll} = require('@jest/globals');
 const {orderServices: {addOrder}} = require('../services')
 
 describe('Order tests', function () {

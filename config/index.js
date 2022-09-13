@@ -5,4 +5,5 @@ module.exports = {
     },
     database: require('./database'),
     jwtSecretKey: '3.1415926535',
+    constants: require('./constants')
 }

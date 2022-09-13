@@ -1,5 +1,5 @@
 const {InternalServerError, NotFoundError, InvalidDuplicateEntryError} = require("../errors");
-const {MongoDuplicateKeyError} = require('../config/constants').STATUS_CODES
+const {constants: {STATUS_CODES}} = require('../config')
 
 module.exports = class BaseService {
     constructor(model) {
@@ -15,7 +15,7 @@ module.exports = class BaseService {
         try {
             return await this.model.create(object);
         } catch (err) {
-            if (err.code === MongoDuplicateKeyError) {
+            if (err.code === STATUS_CODES.MongoDuplicateKeyError) {
                 const duplicateMessage = `${Object.keys(err.keyPattern)} already exists`
                 throw new InvalidDuplicateEntryError(duplicateMessage)
             }

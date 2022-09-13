@@ -1,7 +1,7 @@
 const {productServices, orderServices} = require('../services');
 const {validate} = require('../validation')
 const authorize = require('../auth')
-const {AUTHORIZATION_RESOURCE_NAMES: resource} = require('../config/constants');
+const {constants: {AUTHORIZATION_RESOURCE_NAMES: resource}} = require('../config');
 const {productSchema} = require('../validation').validationSchemas
 
 /**

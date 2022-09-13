@@ -1,4 +1,4 @@
-const { STATUS_CODES } = require('../config/constants')
+const {constants: {STATUS_CODES}} = require('../config')
 module.exports = class BaseError extends Error {
     code = STATUS_CODES.Default;
     details = {status: 'none'}

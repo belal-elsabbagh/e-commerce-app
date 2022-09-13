@@ -1,8 +1,8 @@
-const { describe, it, expect} = require('@jest/globals');
-const { STATUS_CODES } = require('../config/constants');
-const { validate, validationSchemas: { userSchemas: { signupSchema } } } = require('../validation')
+const {describe, it, expect} = require('@jest/globals');
+const {constants: {STATUS_CODES}} = require('../config')
+const {validate, validationSchemas: {userSchemas: {signupSchema}}} = require('../validation')
 const verifyUserToken = require('../middleware/verifyUserToken')
-const { userServices: { addUser, deleteUser, getUsers, login } } = require('../services')
+const {userServices: {addUser, deleteUser, getUsers, login}} = require('../services')
 
 describe('Users Services Test', () => {
 

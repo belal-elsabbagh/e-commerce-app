@@ -1,5 +1,5 @@
 const BaseError = require('./BaseError');
-const { STATUS_CODES } = require('../config/constants')
+const {constants: {STATUS_CODES}} = require('../config')
 module.exports = class ValidationError extends BaseError {
     details = {};
     constructor(message, details = {}) {

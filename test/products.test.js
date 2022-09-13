@@ -1,5 +1,5 @@
 const {describe, it, expect, afterAll, beforeAll} = require('@jest/globals');
-const {STATUS_CODES} = require('../config/constants');
+const {constants: {STATUS_CODES}} = require('../config')
 const {validate, validationSchemas: {productSchema}} = require('../validation')
 const {
     productServices: {
