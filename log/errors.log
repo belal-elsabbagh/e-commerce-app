@@ -356,3 +356,13 @@
     }
   }
 },
+{
+  "thrownAt": "2022-09-13T16:22:51.122Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},

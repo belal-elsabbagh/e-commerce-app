@@ -1371,3 +1371,31 @@
   "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwidG9rZW5UaW1lQ3JlYXRlZCI6MTY2MzA4NDIyNzU1MCwiaWF0IjoxNjYzMDg0MjI3LCJleHAiOjE2NjMwODc4Mjd9.VagdHQQcDrBCOXVqNKx0RtC4R3eEeBhngiDlBOIdtpc",
   "body": {}
 },
+{
+  "receivedAt": "2022-09-13T16:22:43.295Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwidG9rZW5UaW1lQ3JlYXRlZCI6MTY2MzA4NDIyNzU1MCwiaWF0IjoxNjYzMDg0MjI3LCJleHAiOjE2NjMwODc4Mjd9.VagdHQQcDrBCOXVqNKx0RtC4R3eEeBhngiDlBOIdtpc",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-13T16:22:51.120Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwidG9rZW5UaW1lQ3JlYXRlZCI6MTY2MzA3NzAxNjM1NywiaWF0IjoxNjYzMDc3MDE2LCJleHAiOjE2NjMwODA2MTZ9.hgpPvkpmTHdXij2ogusdVTYjkfulDtURSUNDBn7SQ2c",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-13T16:23:00.491Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwidG9rZW5UaW1lQ3JlYXRlZCI6MTY2MzA4NDIyNzU1MCwiaWF0IjoxNjYzMDg0MjI3LCJleHAiOjE2NjMwODc4Mjd9.VagdHQQcDrBCOXVqNKx0RtC4R3eEeBhngiDlBOIdtpc",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-13T16:25:31.221Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwidG9rZW5UaW1lQ3JlYXRlZCI6MTY2MzA4NDIyNzU1MCwiaWF0IjoxNjYzMDg0MjI3LCJleHAiOjE2NjMwODc4Mjd9.VagdHQQcDrBCOXVqNKx0RtC4R3eEeBhngiDlBOIdtpc",
+  "body": {}
+},

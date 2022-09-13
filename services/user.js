@@ -14,15 +14,15 @@ class UserServices extends BaseService {
 
     async getWithOrders(filter = {}) {
         let result = await super.get(filter);
-        return await Promise.all(result.map(async (i) => {
-            let user = JSON.parse(JSON.stringify(i));
+        return await Promise.all(result.map(async (user) => {
+            let orders = undefined
             try {
-                user.orders = await this.getUserOrders(i._id.toString())
+                orders = await this.getUserOrders(user._id.toString())
             } catch (err) {
                 if (!(err instanceof NotFoundError)) throw err
-                user.orders = "This user has no orders"
+                orders = "This user has no orders"
             }
-            return user
+            return {...(user._doc), orders}
         }))
     }
 
