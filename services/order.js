@@ -20,6 +20,17 @@ class OrderServices extends BaseService {
         if (order.userId !== userId) throw new ForbiddenError('You are not authorized to delete this order.')
         return await this.model.findByIdAndDelete(orderId)
     }
+
+    async getMostOrderedProduct() {
+        const res = await this.model.aggregate([
+            {'$unwind': '$products'},
+            {'$sortByCount': '$products._id'},
+            {'$limit': 1}
+        ])
+        let product = JSON.parse(JSON.stringify(await productServices.getById(res[0]._id.toString())))
+        product.timesOrdered = res[0].count
+        return product
+    }
 }
 
 module.exports = new OrderServices();

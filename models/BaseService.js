@@ -30,7 +30,10 @@ module.exports = class BaseService {
      */
     async get(filter = {}) {
         let object = await this.model.find(filter)
-        if (object.length === 0) throw new NotFoundError(`Nothing was found having this data`, filter)
+        if (object.length === 0) {
+            const objectName = this.model.collection.collectionName
+            throw new NotFoundError(`No ${objectName} was found having ${JSON.stringify(filter)}`, filter)
+        }
         return object
     }
 
@@ -41,14 +44,14 @@ module.exports = class BaseService {
      */
     async getById(id) {
         let object = await this.model.findById(id)
-        if (!object) throw new NotFoundError(`Nothing was found with this id.`, {id})
+        if (!object) throw new NotFoundError(`Nothing was found with id '${id}'.`, {id})
         return object
     }
 
     /**
      * @throws {NotFoundError}
-     * @param id
-     * @param updates
+     * @param {String} id
+     * @param {Object} updates
      * @returns {Promise<*>}
      */
     async update(id, updates) {

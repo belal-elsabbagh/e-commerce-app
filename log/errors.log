@@ -302,3 +302,57 @@
     }
   }
 },
+{
+  "thrownAt": "2022-09-13T13:50:11.112Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-13T13:50:52.580Z",
+  "err": {
+    "errorCode": 404,
+    "message": "No User was found having this {\"username\":\"success\"}",
+    "details": {
+      "failedQuery": {
+        "username": "success"
+      }
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-13T13:54:46.176Z",
+  "err": {
+    "errorCode": 404,
+    "message": "No User was found having {\"username\":\"success\"}",
+    "details": {
+      "failedQuery": {
+        "username": "success"
+      }
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-13T14:27:52.146Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-13T14:34:11.037Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},

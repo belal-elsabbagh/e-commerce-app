@@ -1,5 +1,5 @@
 const {userModel} = require('../models')
-const {NotAuthenticatedError} = require('../errors')
+const {NotAuthenticatedError, NotFoundError} = require('../errors')
 const BaseService = require("../models/BaseService");
 const orderServices = require("./order");
 
@@ -8,11 +8,20 @@ class UserServices extends BaseService {
         super(userModel);
     }
 
+    async getUserOrders(userId) {
+        return await orderServices.get({userId})
+    }
+
     async getWithOrders(filter = {}) {
         let result = await super.get(filter);
         return await Promise.all(result.map(async (i) => {
             let user = JSON.parse(JSON.stringify(i));
-            user.orders = await orderServices.get({userId: i._id.toString()})
+            try {
+                user.orders = await this.getUserOrders(i._id.toString())
+            } catch (err) {
+                if (!(err instanceof NotFoundError)) throw err
+                user.orders = "This user has no orders"
+            }
             return user
         }))
     }
