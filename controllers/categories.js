@@ -8,11 +8,11 @@ const {categorySchema} = require('../validation').validationSchemas
  * The categories controller
  * @param {Express} app
  */
-module.exports = (app) => {
+module.exports = app => {
     app.get('/categories', async (req, res, next) => {
         try {
             authorize(req.tokenData, 'read:any', resource.product)
-            res.status(200).json(await categoryServices.get(req.query))
+            res.status(STATUS_CODES.Success).json(await categoryServices.get(req.query))
         } catch (err) {
             next(err)
         }
@@ -22,7 +22,7 @@ module.exports = (app) => {
         try {
             authorize(req.tokenData, 'create:any', resource.productCategory)
             let newCategory = await validate(categorySchema, req.body)
-            res.status(201).json(await categoryServices.add(newCategory));
+            res.status(STATUS_CODES.Created).json(await categoryServices.add(newCategory));
         } catch (err) {
             next(err)
         }
@@ -31,7 +31,7 @@ module.exports = (app) => {
     app.patch('/categories/:id', async (req, res, next) => {
         try {
             authorize(req.tokenData, 'update:any', resource.productCategory)
-            res.status(201).json(await categoryServices.update(req.params.id, req.body));
+            res.status(STATUS_CODES.Success).json(await categoryServices.update(req.params.id, req.body));
         } catch (err) {
             next(err)
         }
@@ -40,7 +40,7 @@ module.exports = (app) => {
     app.delete('/categories/:id', async (req, res, next) => {
         try {
             authorize(req.tokenData, 'delete:any', resource.productCategory)
-            res.status(200).json(await categoryServices.delete(req.params.id))
+            res.status(STATUS_CODES.Success).json(await categoryServices.delete(req.params.id))
         } catch (err) {
             next(err)
         }

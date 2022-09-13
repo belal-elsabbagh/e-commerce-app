@@ -10,14 +10,16 @@ const {
     errorHandler,
     requestLogger,
     authenticateBearerToken
-} = require('./middleware')
+} = require('./middleware');
+const { STATUS_CODES } = require('./config/constants');
 const bodyParser = require('body-parser').json({})
 
 let app = express()
 try {
     app.use(bodyParser)
     app.use(requestLogger)
-    app.use(authenticateBearerToken) // Deactivate to test the api without authentication
+    // Deactivate to test the api without authentication
+    app.use(authenticateBearerToken)
     usersController(app)
     productsController(app)
     ordersController(app)
@@ -27,6 +29,6 @@ try {
     console.log(`Server started on http://${config.server.host}:${config.server.port}`)
 } catch (err) {
     console.error(err);
-    process.exit(600)
+    process.exit(STATUS_CODES.Default)
 }
 module.exports = app

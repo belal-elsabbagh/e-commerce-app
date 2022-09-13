@@ -8,11 +8,11 @@ module.exports.validationSchemas = {
 }
 
 /**
- * 
- * @param {Object} schemaObject 
- * @param {Object} objectToValidate 
+ *
+ * @param {Object} schemaObject
+ * @param {Object} objectToValidate
  * @throws {ValidationError} If the object to validate is not valid
- * @returns 
+ * @returns
  */
 module.exports.validate = async (schemaObject, objectToValidate) => {
     try {

@@ -9,10 +9,9 @@ module.exports = async function (req, res, next) {
         body: req.body,
     }
     try {
-        await logObjectToFile(__dirname+"/../log/requests.log", toBeLogged);
+        await logObjectToFile(__dirname+'/../log/requests.log', toBeLogged);
         next();
     } catch (err) {
-        console.log(err)
         next(err)
     }
 }

@@ -1,12 +1,11 @@
 const { jwtSecretKey } = require('../config');
-const jsonwebtoken = require("jsonwebtoken");
-const {NotAuthenticatedError } = require("../errors");
+const jsonwebtoken = require('jsonwebtoken');
+const {NotAuthenticatedError } = require('../errors');
 module.exports = async (userToken) => {
     try {
         if (!userToken) throw new NotAuthenticatedError('No token provided')
-        let data = jsonwebtoken.verify(userToken, jwtSecretKey);
-        return data;
+        return jsonwebtoken.verify(userToken, jwtSecretKey);
     } catch (err) {
-        throw new NotAuthenticatedError("Invalid token")
+        throw new NotAuthenticatedError('Invalid token')
     }
 }

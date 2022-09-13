@@ -59,7 +59,7 @@ describe('Users Services Test', () => {
 
     })
     describe('Successful signup', () => {
-        let testUserResult = undefined
+        let testUserResult = null
         it('signup process is successful', async () => {
             try {
                 testUserResult = await addUser(testUserData.validSignupData)

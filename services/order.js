@@ -1,7 +1,7 @@
 const {ForbiddenError} = require('../errors');
 const {orderModel} = require('../models');
 const productServices = require('./product')
-const BaseService = require("../models/BaseService");
+const BaseService = require('../models/BaseService');
 
 class OrderServices extends BaseService {
     constructor() {
@@ -9,16 +9,16 @@ class OrderServices extends BaseService {
     }
 
     async add(orderObject) {
-        orderObject.products = await Promise.all(orderObject.products.map(async i => {
-            return await productServices.getById(i)
+        orderObject.products = await Promise.all(orderObject.products.map(i => {
+            return productServices.getById(i)
         }))
-        return await this.model.create(orderObject)
+        return this.model.create(orderObject)
     }
 
     async deleteOwnOrder(orderId, userId) {
         const order = await super.getById(orderId)
         if (order.userId !== userId) throw new ForbiddenError('You are not authorized to delete this order.')
-        return await this.model.findByIdAndDelete(orderId)
+        return this.model.findByIdAndDelete(orderId)
     }
 
     async getMostOrderedProduct() {
@@ -30,6 +30,10 @@ class OrderServices extends BaseService {
         const productData = aggregationResult[0]
         const doc = await productServices.getById(productData._id.toString())
         return {...(doc._doc), timesOrdered: productData.count}
+    }
+
+    async orderBelongsToUser(orderId, userId) {
+        return this.model.checkOrderUser(orderId, userId)
     }
 }
 

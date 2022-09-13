@@ -37,6 +37,12 @@ const constants = {
         password: '886vwh92rXuMcgEj',
         clusterUri: 'cluster0.mvizz.mongodb.net',
         name: 'e-commerce'
+    },
+
+    STRING_LENGTH: {
+        min: 3,
+        max: 32,
+        password: 8
     }
 }
 Object.freeze(constants)

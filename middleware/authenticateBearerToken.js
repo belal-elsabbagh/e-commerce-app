@@ -9,8 +9,8 @@ module.exports = async (req, res, next) => {
     if(requestedUrl.includes('/login') || requestedUrl.includes('/signup')) return next();
     try {
         req.tokenData = await verifyUserToken(getToken(req));
-        next();
     } catch (err) {
         next(err);
     }
+    return next();
 }

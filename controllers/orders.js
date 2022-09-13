@@ -2,18 +2,19 @@ const {validate} = require('../validation')
 const authorize = require('../auth')
 const {validationSchemas: {orderSchema}} = require('../validation')
 const {orderServices} = require('../services');
-const {constants: {AUTHORIZATION_RESOURCE_NAMES: resource}} = require('../config');
-const mongoose = require("mongoose");
+const {constants: {AUTHORIZATION_RESOURCE_NAMES: resource, STATUS_CODES}} = require('../config');
+const mongoose = require('mongoose');
+
 /**
  * The users controller
  * @param {Express} app
  */
-module.exports = (app) => {
+module.exports = app => {
 
     app.get('/orders', async (req, res, next) => {
         try {
             authorize(req.tokenData, 'read:any', resource.order)
-            res.status(200).json(await orderServices.get(req.query))
+            res.status(STATUS_CODES.Success).json(await orderServices.get(req.query))
         } catch (err) {
             next(err)
         }
@@ -22,7 +23,7 @@ module.exports = (app) => {
     app.get('/users/:userId/orders', async (req, res, next) => {
         try {
             authorize(req.tokenData, 'read:own', resource.order, req.params.userId)
-            res.status(200).json(await orderServices.get({userId: new mongoose.Types.ObjectId(req.params.userId)}))
+            res.status(STATUS_CODES.Success).json(await orderServices.get({userId: new mongoose.Types.ObjectId(req.params.userId)}))
         } catch (err) {
             next(err)
         }
@@ -37,7 +38,7 @@ module.exports = (app) => {
                 shippingAddress: req.body.shippingAddress,
             }
             const newOrder = await validate(orderSchema, parsedOrderData)
-            res.status(201).json(await orderServices.add(newOrder));
+            res.status(STATUS_CODES.Created).json(await orderServices.add(newOrder));
         } catch (err) {
             next(err)
         }
@@ -46,7 +47,7 @@ module.exports = (app) => {
     app.delete('/users/:userId/orders/:id', async (req, res, next) => {
         try {
             authorize(req.tokenData, 'delete:own', resource.order, req.params.userId)
-            res.status(200).json(await orderServices.deleteOwnOrder(req.params.id, req.tokenData.user.id));
+            res.status(STATUS_CODES.Success).json(await orderServices.deleteOwnOrder(req.params.id, req.tokenData.user.id));
         } catch (err) {
             next(err)
         }

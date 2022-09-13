@@ -366,3 +366,43 @@
     }
   }
 },
+{
+  "thrownAt": "2022-09-13T17:51:33.387Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-13T17:51:58.904Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-13T18:19:53.540Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-13T19:02:44.986Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},

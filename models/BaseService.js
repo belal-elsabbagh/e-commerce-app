@@ -56,7 +56,7 @@ module.exports = class BaseService {
      */
     async update(id, updates) {
         await this.getById(id);
-        return await this.model.findByIdAndUpdate(id, updates, {new: true})
+        return this.model.findByIdAndUpdate(id, updates, {new: true})
     }
 
     /**
@@ -66,6 +66,6 @@ module.exports = class BaseService {
      */
     async delete(id) {
         await this.getById(id);
-        return await this.model.findByIdAndDelete(id)
+        return this.model.findByIdAndDelete(id)
     }
 }

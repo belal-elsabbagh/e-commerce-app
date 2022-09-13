@@ -12,7 +12,7 @@ module.exports = (app) => {
     app.get('/users', async (req, res, next) => {
         try {
             authorize(req.tokenData, 'read:any', resource.user)
-            res.status(200).json(await userServices.get(req.query))
+            res.status(STATUS_CODES.Success).json(await userServices.get(req.query))
         } catch (err) {
             next(err)
         }
@@ -22,7 +22,7 @@ module.exports = (app) => {
         try {
             authorize(req.tokenData, 'read:any', resource.order)
             authorize(req.tokenData, 'read:any', resource.user)
-            res.status(200).json(await userServices.getWithOrders(req.query))
+            res.status(STATUS_CODES.Success).json(await userServices.getWithOrders(req.query))
         } catch (err) {
             next(err)
         }
@@ -32,7 +32,7 @@ module.exports = (app) => {
         try {
             authorize(req.tokenData, 'read:any', resource.user)
             let result = await userServices.getById(req.params.id)
-            res.status(200).json(result)
+            res.status(STATUS_CODES.Success).json(result)
         } catch (err) {
             next(err)
         }
@@ -42,7 +42,7 @@ module.exports = (app) => {
         try {
             authorize(req.tokenData, 'create:any', resource.user)
             let user = await validate(userSchema, req.body);
-            res.status(201).json(await userServices.add(user));
+            res.status(STATUS_CODES.Created).json(await userServices.add(user));
         } catch (err) {
             next(err)
         }
@@ -51,7 +51,7 @@ module.exports = (app) => {
     app.post('/users/signup', async (req, res, next) => {
         try {
             let user = await validate(signupSchema, req.body);
-            res.status(201).json(await userServices.add(user));
+            res.status(STATUS_CODES.Created).json(await userServices.add(user));
         } catch (err) {
             next(err)
         }
@@ -61,7 +61,7 @@ module.exports = (app) => {
         try {
             let user = await validate(loginSchema, req.body);
             let userData = await userServices.login(user)
-            res.status(200).json(userData);
+            res.status(STATUS_CODES.Success).json(userData);
         } catch (err) {
             next(err)
         }
@@ -71,7 +71,7 @@ module.exports = (app) => {
         try {
             authorize(req.tokenData, 'delete:any', resource.user)
             const userId = req.params.userId
-            res.status(200).json(await userServices.delete(userId))
+            res.status(STATUS_CODES.Success).json(await userServices.delete(userId))
         } catch (err) {
             next(err)
         }

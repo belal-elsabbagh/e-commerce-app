@@ -1,8 +1,8 @@
 let mongoose = require('mongoose')
 const categoryModel = require('./category').model
 const toObjectId = require('../lib/toObjectId')
-const {NotFoundError} = require("../errors");
-const {database} = require("../config");
+const {NotFoundError} = require('../errors');
+const {database} = require('../config');
 let productSchema = new mongoose.Schema({
     name: String,
     price: Number,
@@ -18,11 +18,12 @@ productSchema.pre('save', async function () {
     this.categoryId = toObjectId(this.categoryId)
 })
 
-productSchema.static('getTotalPriceOfProducts', async function (products) {
+productSchema.statics.getTotalPriceOfProducts = async function (products) {
     let totalPrice = 0;
     products.forEach(i => totalPrice += i.price)
     return totalPrice;
-})
+}
 
 module.exports.schema = productSchema
 module.exports.model = mongoose.model(database.collections.product, productSchema, database.collections.product)
+

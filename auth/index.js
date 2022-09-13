@@ -6,7 +6,7 @@ function idErrorMessage(userId) {
 }
 
 function permissionErrorMessage(userTokenData, action, resource) {
-    return `User ${userTokenData.user.id} does not have permission to ${action.replace(/:/, " ")} ${resource}`
+    return `User ${userTokenData.user.id} does not have permission to ${action.replace(/:/, ' ')} ${resource}`
 }
 
 function getPermission(role, action, resource) {
