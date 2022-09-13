@@ -22,14 +22,14 @@ class OrderServices extends BaseService {
     }
 
     async getMostOrderedProduct() {
-        const res = await this.model.aggregate([
+        const aggregationResult = await this.model.aggregate([
             {'$unwind': '$products'},
             {'$sortByCount': '$products._id'},
             {'$limit': 1}
         ])
-        let product = JSON.parse(JSON.stringify(await productServices.getById(res[0]._id.toString())))
-        product.timesOrdered = res[0].count
-        return product
+        const productData = aggregationResult[0]
+        const doc = await productServices.getById(productData._id.toString())
+        return {...(doc._doc), timesOrdered: productData.count}
     }
 }
 
