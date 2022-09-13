@@ -11,8 +11,18 @@ module.exports = (app) => {
 
     app.get('/users', async (req, res, next) => {
         try {
-            authorize(req.tokenData.user.role, 'read:any', resource.user)
+            authorize(req.tokenData, 'read:any', resource.user)
             res.status(200).json(await userServices.get(req.query))
+        } catch (err) {
+            next(err)
+        }
+    });
+
+    app.get('/users/orders', async (req, res, next) => {
+        try {
+            authorize(req.tokenData, 'read:any', resource.order)
+            authorize(req.tokenData, 'read:any', resource.user)
+            res.status(200).json(await userServices.getWithOrders(req.query))
         } catch (err) {
             next(err)
         }
@@ -20,7 +30,7 @@ module.exports = (app) => {
 
     app.get('/users/:id', async (req, res, next) => {
         try {
-            authorize(req.tokenData.user.role, 'read:any', resource.user)
+            authorize(req.tokenData, 'read:any', resource.user)
             let result = await userServices.getById(req.params.id)
             res.status(200).json(result)
         } catch (err) {
@@ -30,7 +40,7 @@ module.exports = (app) => {
 
     app.post('/users', async (req, res, next) => {
         try {
-            authorize(req.tokenData.user.role, 'create:any', resource.user)
+            authorize(req.tokenData, 'create:any', resource.user)
             let user = await validate(userSchema, req.body);
             res.status(201).json(await userServices.add(user));
         } catch (err) {
@@ -59,7 +69,7 @@ module.exports = (app) => {
 
     app.delete('/users/:userId', async (req, res, next) => {
         try {
-            authorize(req.tokenData.user.role, 'delete:any', resource.user)
+            authorize(req.tokenData, 'delete:any', resource.user)
             const userId = req.params.userId
             res.status(200).json(await userServices.delete(userId))
         } catch (err) {

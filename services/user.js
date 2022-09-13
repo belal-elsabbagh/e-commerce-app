@@ -1,10 +1,20 @@
 const {userModel} = require('../models')
-const {InvalidDuplicateEntryError, NotAuthenticatedError} = require('../errors')
-const BaseService = require("./BaseService");
+const {NotAuthenticatedError} = require('../errors')
+const BaseService = require("../models/BaseService");
+const orderServices = require("./order");
 
 class UserServices extends BaseService {
     constructor() {
         super(userModel);
+    }
+
+    async getWithOrders(filter = {}) {
+        let result = await super.get(filter);
+        return await Promise.all(result.map(async (i) => {
+            let user = JSON.parse(JSON.stringify(i));
+            user.orders = await orderServices.get({userId: i._id.toString()})
+            return user
+        }))
     }
 
     /**

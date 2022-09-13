@@ -28,8 +28,8 @@ function checkIdWithToken(userTokenData, userId) {
  */
 module.exports = async (userTokenData, action, resource, userId = null) => {
     const {role} = userTokenData.user
-    const idCheck = checkIdWithToken(userTokenData, userId)
-    if (!idCheck) throw new ForbiddenError(idErrorMessage(userId))
+    const invalidIdCheck = checkIdWithToken(userTokenData, userId)
+    if (invalidIdCheck) throw new ForbiddenError(idErrorMessage(userId))
     const permissionCheck = getPermission(role, action, resource)
     if (!permissionCheck) throw new ForbiddenError(permissionErrorMessage(userTokenData, action, resource))
     return true

@@ -1,7 +1,7 @@
 const {ForbiddenError} = require('../errors');
 const {orderModel} = require('../models');
-const {getProductById} = require('./product')
-const BaseService = require("./BaseService");
+const productServices = require('./product')
+const BaseService = require("../models/BaseService");
 
 class OrderServices extends BaseService {
     constructor() {
@@ -9,7 +9,9 @@ class OrderServices extends BaseService {
     }
 
     async add(orderObject) {
-        orderObject.products = await Promise.all(orderObject.products.map(async i => await getProductById(i)))
+        orderObject.products = await Promise.all(orderObject.products.map(async i => {
+            return await productServices.getById(i)
+        }))
         return await this.model.create(orderObject)
     }
 

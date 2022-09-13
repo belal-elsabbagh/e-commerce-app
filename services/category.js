@@ -1,5 +1,5 @@
 const {categoryModel} = require("../models");
-const BaseService = require("./BaseService");
+const BaseService = require("../models/BaseService");
 
 class CategoryServices extends BaseService {
     constructor() {

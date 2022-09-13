@@ -1,6 +1,6 @@
 const {NotFoundError} = require('../errors');
 const {productModel} = require('../models');
-const BaseService = require("./BaseService");
+const BaseService = require("../models/BaseService");
 
 class ProductServices extends BaseService {
     constructor() {
