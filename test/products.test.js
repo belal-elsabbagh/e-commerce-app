@@ -11,14 +11,14 @@ const {
     }
 } = require('../services')
 describe('Products Services Test', () => {
-    let testProductId = undefined
+    let testProductId = null
     const validProductData = {
         productName: 'new product',
         productPrice: 1123.456,
         category: 'new category'
     }
 
-    it("get products", async () => {
+    it('get products', async () => {
         const res = await getProducts();
         expect(Array.isArray(res)).toBe(true);
     });
@@ -26,8 +26,8 @@ describe('Products Services Test', () => {
     describe('Bad Product Data Detection', () => {
         const productData = {
             productName: 'new product',
-            productPrice: "string",
-            categoryId: "6315d80df6c2127808dd84e6"
+            productPrice: 'string',
+            categoryId: '6315d80df6c2127808dd84e6'
         }
 
         it('detected that price is a string', async () => {
@@ -72,8 +72,7 @@ describe('Products Services Test', () => {
         })
 
         it('not found product', async () => {
-            let index = 1;
-            const fakeId = testProductId.toString().substring(0, index) + '2' + testProductId.toString().substring(index + 1);
+            const fakeId = '632056609e36a48577c63bda';
             try {
                 const res = await getProductById(fakeId)
                 expect(res).toBe(undefined)
@@ -83,7 +82,7 @@ describe('Products Services Test', () => {
         })
 
         it('update productName', async () => {
-            const updatedName = "updated name"
+            const updatedName = 'updated name'
             const res = await updateProduct(testProductId.toString(), {
                 productName: updatedName
             })

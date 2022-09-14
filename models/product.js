@@ -24,6 +24,7 @@ productSchema.statics.getTotalPriceOfProducts = async function (products) {
     return totalPrice;
 }
 
-module.exports.schema = productSchema
-module.exports.model = mongoose.model(database.collections.product, productSchema, database.collections.product)
-
+module.exports = {
+    schema: productSchema,
+    model: mongoose.model(database.collections.product, productSchema, database.collections.product)
+}

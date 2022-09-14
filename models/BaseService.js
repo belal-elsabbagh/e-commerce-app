@@ -1,4 +1,4 @@
-const {InternalServerError, NotFoundError, InvalidDuplicateEntryError} = require("../errors");
+const {InternalServerError, NotFoundError, InvalidDuplicateEntryError} = require('../errors');
 const {constants: {STATUS_CODES}} = require('../config')
 
 module.exports = class BaseService {
@@ -19,7 +19,7 @@ module.exports = class BaseService {
                 const duplicateMessage = `${Object.keys(err.keyPattern)} already exists`
                 throw new InvalidDuplicateEntryError(duplicateMessage)
             }
-            throw new InternalServerError("Failed to run query to create object")
+            throw new InternalServerError('Failed to run query to create object')
         }
     }
 

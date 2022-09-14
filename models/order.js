@@ -26,5 +26,7 @@ orderSchema.pre('save', async function (next) {
 
 })
 
-module.exports.schema = orderSchema
-module.exports.model = mongoose.model(database.collections.order, orderSchema, database.collections.order)
+module.exports = {
+    schema: orderSchema,
+    model: mongoose.model(database.collections.order, orderSchema, database.collections.order)
+}

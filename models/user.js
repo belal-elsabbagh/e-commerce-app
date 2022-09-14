@@ -1,6 +1,6 @@
 let mongoose = require('mongoose')
 let crypto = require('crypto')
-const jsonwebtoken = require("jsonwebtoken");
+const jsonwebtoken = require('jsonwebtoken');
 const {jwtSecretKey, database} = require('../config');
 const {InternalServerError} = require('../errors');
 
@@ -40,8 +40,9 @@ userSchema.static('generateToken', function (userObject, expiresIn = '1h') {
         },
         iat: Date.now()
     }
-    return jsonwebtoken.sign(data, jwtSecretKey, {expiresIn: expiresIn})
+    return jsonwebtoken.sign(data, jwtSecretKey, {expiresIn})
 })
-
-module.exports.schema = userSchema
-module.exports.model = mongoose.model(database.collections.user, userSchema, database.collections.user)
+module.exports = {
+    schema: userSchema,
+    model: mongoose.model(database.collections.user, userSchema, database.collections.user)
+}
