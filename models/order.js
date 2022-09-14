@@ -23,7 +23,6 @@ orderSchema.pre('save', async function (next) {
     order.userId = await toObjectIdOfModel(userModel, order.userId)
     order.totalPrice = await productModel.getTotalPriceOfProducts(order.products);
     next();
-
 })
 
 module.exports = {

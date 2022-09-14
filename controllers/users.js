@@ -1,6 +1,6 @@
 const {validate} = require('../validation')
 const authorize = require('../auth')
-const {constants: {AUTHORIZATION_RESOURCE_NAMES: resource}} = require('../config');
+const {AUTHORIZATION_RESOURCE_NAMES: resource, STATUS_CODES} = require('../config/constants');
 const {signupSchema, loginSchema, userSchema} = require('../validation/').validationSchemas.userSchemas
 const {userServices} = require('../services/')
 /**
@@ -22,7 +22,7 @@ module.exports = (app) => {
         try {
             authorize(req.tokenData, 'read:any', resource.order)
             authorize(req.tokenData, 'read:any', resource.user)
-            res.status(STATUS_CODES.Success).json(await userServices.getWithOrders(req.query))
+            res.status(STATUS_CODES.Success).json(await userServices.getUsersWithOrders(req.query))
         } catch (err) {
             next(err)
         }

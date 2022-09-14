@@ -7,6 +7,7 @@ let productSchema = new mongoose.Schema({
     name: String,
     price: Number,
     category: {type: mongoose.Schema.Types.ObjectId, ref: database.collections.category},
+    ordersCount: {type: Number, default: 0}
 }, {
     collection: database.collections.product,
     timestamps: true

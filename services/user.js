@@ -2,6 +2,7 @@ const {userModel} = require('../models')
 const {NotAuthenticatedError, NotFoundError} = require('../errors')
 const BaseService = require('../models/BaseService');
 const orderServices = require('./order');
+const {database} = require("../config");
 
 class UserServices extends BaseService {
     constructor() {
@@ -12,18 +13,17 @@ class UserServices extends BaseService {
         return orderServices.get({userId})
     }
 
-    async getWithOrders(filter = {}) {
-        let result = await super.get(filter);
-        return Promise.all(result.map(async (user) => {
-            let orders = null
-            try {
-                orders = await this.getUserOrders(user._id.toString())
-            } catch (err) {
-                if (!(err instanceof NotFoundError)) throw err
-                orders = 'This user has no orders'
+    async getUsersWithOrders(filter = {}) {
+        return this.model.aggregate([
+            {
+                '$lookup': {
+                    'from': database.collections.order,
+                    'localField': '_id',
+                    'foreignField': 'userId',
+                    'as': 'orders'
+                }
             }
-            return {...(user._doc), orders}
-        }))
+        ])
     }
 
     /**

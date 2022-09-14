@@ -1,7 +1,7 @@
 const {categoryServices} = require('../services');
 const {validate} = require('../validation')
 const authorize = require('../auth')
-const {constants: {AUTHORIZATION_RESOURCE_NAMES: resource}} = require('../config');
+const {AUTHORIZATION_RESOURCE_NAMES: resource, STATUS_CODES} = require('../config/constants');
 const {categorySchema} = require('../validation').validationSchemas
 
 /**

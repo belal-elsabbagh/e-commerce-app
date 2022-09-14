@@ -10,7 +10,7 @@ class OrderServices extends BaseService {
 
     async add(orderObject) {
         orderObject.products = await Promise.all(orderObject.products.map(i => {
-            return productServices.getById(i)
+            return productServices.update(i, {$inc: {ordersCount: 1}})
         }))
         return this.model.create(orderObject)
     }
@@ -19,17 +19,6 @@ class OrderServices extends BaseService {
         const order = await super.getById(orderId)
         if (order.userId !== userId) throw new ForbiddenError('You are not authorized to delete this order.')
         return this.model.findByIdAndDelete(orderId)
-    }
-
-    async getMostOrderedProduct() {
-        const aggregationResult = await this.model.aggregate([
-            {'$unwind': '$products'},
-            {'$sortByCount': '$products._id'},
-            {'$limit': 1}
-        ])
-        const productData = aggregationResult[0]
-        const doc = await productServices.getById(productData._id.toString())
-        return {...(doc._doc), timesOrdered: productData.count}
     }
 
     async orderBelongsToUser(orderId, userId) {

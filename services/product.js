@@ -12,6 +12,10 @@ class ProductServices extends BaseService {
         if (queryResult.length === 0) throw new NotFoundError('No product was found having these parameters', filter)
         return queryResult
     }
+
+    async getMostOrderedProduct() {
+       return this.model.find({}).sort('-ordersCount').limit(1);
+    }
 }
 
 module.exports = new ProductServices();

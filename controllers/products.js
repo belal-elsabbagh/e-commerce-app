@@ -1,7 +1,7 @@
-const {productServices, orderServices} = require('../services');
+const {productServices} = require('../services');
 const {validate} = require('../validation')
 const authorize = require('../auth')
-const {constants: {AUTHORIZATION_RESOURCE_NAMES: resource, STATUS_CODES}} = require('../config');
+const {AUTHORIZATION_RESOURCE_NAMES: resource, STATUS_CODES} = require('../config/constants');
 const {productSchema} = require('../validation').validationSchemas
 
 /**
@@ -21,7 +21,7 @@ module.exports = app => {
     app.get('/products/bestseller', async (req, res, next) => {
         try {
             authorize(req.tokenData, 'read:any', resource.product)
-            res.status(STATUS_CODES.Success).json(await orderServices.getMostOrderedProduct())
+            res.status(STATUS_CODES.Success).json(await productServices.getMostOrderedProduct())
         } catch (err) {
             next(err)
         }
