@@ -422,3 +422,172 @@
     "status": "none"
   }
 },
+{
+  "thrownAt": "2022-09-15T12:15:50.778Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T12:16:34.969Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T12:16:43.309Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T12:16:50.778Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T12:16:51.696Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T12:16:52.397Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T12:18:29.427Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "name": "JsonWebTokenError",
+      "message": "invalid token"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T12:19:29.584Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "name": "JsonWebTokenError",
+      "message": "invalid token"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T12:25:23.437Z",
+  "err": {
+    "reason": {
+      "type": "ReplicaSetNoPrimary",
+      "servers": {},
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": "atlas-ac1kic-shard-0",
+      "maxSetVersion": 1,
+      "maxElectionId": "7fffffff0000000000000009",
+      "commonWireVersion": 13
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T13:03:38.431Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T13:11:30.560Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T13:11:32.673Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T13:13:59.893Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T13:17:24.253Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T13:18:19.615Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-15T13:18:43.418Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid token",
+    "details": {
+      "status": "none"
+    }
+  }
+},

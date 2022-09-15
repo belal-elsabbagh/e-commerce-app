@@ -1,6 +1,6 @@
 let mongoose = require('mongoose')
 const categoryModel = require('./category').model
-const toObjectId = require('../lib/toObjectId')
+const toObjectIdOfModel = require('../lib/toObjectIdOfModel')
 const {NotFoundError} = require('../errors');
 const {database} = require('../config');
 let productSchema = new mongoose.Schema({
@@ -16,7 +16,7 @@ let productSchema = new mongoose.Schema({
 productSchema.pre('save', async function () {
     let result = categoryModel.findById(this.categoryId);
     if (result === null) throw new NotFoundError(`No category was found having this id.`, {id: this.categoryId})
-    this.categoryId = toObjectId(this.categoryId)
+    this.categoryId = toObjectIdOfModel(categoryModel, this.categoryId)
 })
 
 productSchema.statics.getTotalPriceOfProducts = async function (products) {

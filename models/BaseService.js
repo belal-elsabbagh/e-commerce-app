@@ -19,7 +19,8 @@ module.exports = class BaseService {
                 const duplicateMessage = `${Object.keys(err.keyPattern)} already exists`
                 throw new InvalidDuplicateEntryError(duplicateMessage)
             }
-            throw new InternalServerError('Failed to run query to create object')
+            const objectName = this.model.collection.collectionName
+            throw new InternalServerError(`Failed to run query to create ${objectName}`)
         }
     }
 

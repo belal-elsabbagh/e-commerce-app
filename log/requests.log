@@ -1612,3 +1612,271 @@
   "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
   "body": {}
 },
+{
+  "receivedAt": "2022-09-15T12:14:42.164Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:14:46.362Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:15:50.774Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:16:34.968Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:16:43.295Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:16:50.776Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:16:51.693Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:16:52.396Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:18:29.423Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:19:29.578Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:19:32.955Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:22:10.438Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:34:37.284Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:43:49.164Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T12:44:23.793Z",
+  "method": "POST",
+  "url": "/users/login",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxOTA5NjU3NTkzM2Q4MTY1OTBmOGUxIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwidG9rZW5UaW1lQ3JlYXRlZCI6MTY2MjU4NTIwNjk1MiwiaWF0IjoxNjYyNTg1MjA2LCJleHAiOjE2NjI1ODg4MDZ9.O7NiNOnLKpEXXdCyP3YlGgQhAcZ7xvSoDTzmpO6qRhE",
+  "body": {
+    "email": "belal@gmail.com",
+    "password": "12345678"
+  }
+},
+{
+  "receivedAt": "2022-09-15T12:44:25.781Z",
+  "method": "POST",
+  "url": "/users/login",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxOTA5NjU3NTkzM2Q4MTY1OTBmOGUxIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwidG9rZW5UaW1lQ3JlYXRlZCI6MTY2MjU4NTIwNjk1MiwiaWF0IjoxNjYyNTg1MjA2LCJleHAiOjE2NjI1ODg4MDZ9.O7NiNOnLKpEXXdCyP3YlGgQhAcZ7xvSoDTzmpO6qRhE",
+  "body": {
+    "email": "belal@gmail.com",
+    "password": "12345678"
+  }
+},
+{
+  "receivedAt": "2022-09-15T13:03:38.425Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:03:40.602Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:03:42.680Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:05:55.771Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:11:26.986Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:11:30.552Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:11:32.671Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:11:34.250Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:13:56.662Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:13:57.862Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:13:59.889Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:17:11.352Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:17:16.830Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:17:24.250Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:18:19.607Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:18:22.410Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:18:24.989Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMTQ3NTg1OTg3LCJleHAiOjE2NjMxNDc1ODk1ODd9.4yk5X_OsewXmQ6tbvCD4_UhI0uQ5V_P4gcIAHjvMvy8",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:18:36.892Z",
+  "method": "POST",
+  "url": "/users/login",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxOTA5NjU3NTkzM2Q4MTY1OTBmOGUxIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwidG9rZW5UaW1lQ3JlYXRlZCI6MTY2MjU4NTIwNjk1MiwiaWF0IjoxNjYyNTg1MjA2LCJleHAiOjE2NjI1ODg4MDZ9.O7NiNOnLKpEXXdCyP3YlGgQhAcZ7xvSoDTzmpO6qRhE",
+  "body": {
+    "email": "belal@gmail.com",
+    "password": "12345678"
+  }
+},
+{
+  "receivedAt": "2022-09-15T13:18:43.416Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:18:54.810Z",
+  "method": "GET",
+  "url": "/users/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMjQ3OTE3MTEyLCJleHAiOjE2NjMyNDc5MjA3MTJ9.JdMwYdmE2Qp3U2pZwcPFBpkIdYYGqTALRlaUbW-pyrQ",
+  "body": {}
+},
+{
+  "receivedAt": "2022-09-15T13:18:59.456Z",
+  "method": "GET",
+  "url": "/products/bestseller",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMjQ3OTE3MTEyLCJleHAiOjE2NjMyNDc5MjA3MTJ9.JdMwYdmE2Qp3U2pZwcPFBpkIdYYGqTALRlaUbW-pyrQ",
+  "body": {}
+},

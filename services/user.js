@@ -1,20 +1,15 @@
 const {userModel} = require('../models')
-const {NotAuthenticatedError, NotFoundError} = require('../errors')
+const {NotAuthenticatedError} = require('../errors')
 const BaseService = require('../models/BaseService');
-const orderServices = require('./order');
-const {database} = require("../config");
+const {database} = require('../config');
 
 class UserServices extends BaseService {
     constructor() {
         super(userModel);
     }
 
-    async getUserOrders(userId) {
-        return orderServices.get({userId})
-    }
-
-    async getUsersWithOrders(filter = {}) {
-        return this.model.aggregate([
+    async getUsersWithOrders() {
+        const getUsersWithOrdersQuery = [
             {
                 '$lookup': {
                     'from': database.collections.order,
@@ -23,7 +18,8 @@ class UserServices extends BaseService {
                     'as': 'orders'
                 }
             }
-        ])
+        ]
+        return this.model.aggregate(getUsersWithOrdersQuery)
     }
 
     /**
