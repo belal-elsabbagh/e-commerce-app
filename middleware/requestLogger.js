@@ -1,12 +1,13 @@
 const logObjectToFile = require('../log');
 
 module.exports = async function (req, res, next) {
+    const {method, originalUrl, headers: {authorization}, body} = req;
     const toBeLogged = {
         receivedAt: new Date().toISOString(),
-        method: req.method,
-        url: req.originalUrl,
-        authorization: req.headers.authorization,
-        body: req.body,
+        method,
+        originalUrl,
+        authorization,
+        body,
     }
     try {
         await logObjectToFile(__dirname+'/../log/requests.log', toBeLogged);

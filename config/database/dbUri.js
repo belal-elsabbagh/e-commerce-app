@@ -6,7 +6,8 @@ const {DATABASE_CONFIGURATION_VARIABLES} = require('../constants')
  * @returns {String} The database connection uri
  */
 function getDbUri(dbConfig) {
-    return `mongodb+srv://${dbConfig.username}:${dbConfig.password}@${dbConfig.clusterUri}/${dbConfig.name}`
+    const {username, password, clusterUri, name} = dbConfig
+    return `mongodb+srv://${username}:${password}@${clusterUri}/${name}`
 }
 
 module.exports = getDbUri(DATABASE_CONFIGURATION_VARIABLES)

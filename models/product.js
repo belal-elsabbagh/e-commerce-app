@@ -1,7 +1,7 @@
 let mongoose = require('mongoose')
 const categoryModel = require('./category').model
 const toObjectIdOfModel = require('../lib/toObjectIdOfModel')
-const {NotFoundError} = require('../errors');
+const {NotFoundError, InternalServerError} = require('../errors');
 const {database} = require('../config');
 let productSchema = new mongoose.Schema({
     name: String,
@@ -20,8 +20,10 @@ productSchema.pre('save', async function () {
 })
 
 productSchema.statics.getTotalPriceOfProducts = async function (products) {
-    let totalPrice = 0;
-    products.forEach(i => totalPrice += i.price)
+    let totalPrice = products.reduce((total, product) => {
+        return total + product.price
+    }, -1)
+    if (totalPrice === -1) throw new InternalServerError('Failed to calculate price.')
     return totalPrice;
 }
 
