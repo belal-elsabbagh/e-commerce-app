@@ -13,7 +13,13 @@ function getPermission(role, action, resource) {
     return ac.permission({role, action, resource}).granted
 }
 
-function checkIdWithToken(userTokenData, userId) {
+/**
+ *
+ * @param {Object} userTokenData
+ * @param {String|null} userId
+ * @returns {boolean}
+ */
+function invalidId(userTokenData, userId) {
     return userTokenData.user.id !== userId && userId !== null
 }
 
@@ -28,7 +34,7 @@ function checkIdWithToken(userTokenData, userId) {
  */
 module.exports = async (userTokenData, action, resource, userId = null) => {
     const {role} = userTokenData.user
-    const invalidIdCheck = checkIdWithToken(userTokenData, userId)
+    const invalidIdCheck = invalidId(userTokenData, userId)
     if (invalidIdCheck) throw new ForbiddenError(idErrorMessage(userId))
     const permissionCheck = getPermission(role, action, resource)
     if (!permissionCheck) throw new ForbiddenError(permissionErrorMessage(userTokenData, action, resource))

@@ -43,6 +43,25 @@ const constants = {
         min: 3,
         max: 32,
         password: 8
+    },
+
+    RESOURCE_ACCESS_ACTIONS: {
+        read: {
+            any: "read:any",
+            own: "read:own"
+        },
+        update: {
+            any: "update:any",
+            own: "update:own"
+        },
+        create: {
+            any: "create:any",
+            own: "create:own"
+        },
+        delete: {
+            any: "delete:any",
+            own: "delete:own"
+        },
     }
 }
 Object.freeze(constants)

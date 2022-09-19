@@ -1,6 +1,10 @@
 const {validate} = require('../validation')
 const authorize = require('../auth')
-const {AUTHORIZATION_RESOURCE_NAMES: resource, STATUS_CODES} = require('../config/constants');
+const {
+    AUTHORIZATION_RESOURCE_NAMES: resource,
+    RESOURCE_ACCESS_ACTIONS: action,
+    STATUS_CODES
+} = require('../config/constants');
 const {signupSchema, loginSchema, userSchema} = require('../validation/').validationSchemas.userSchemas
 const {userServices} = require('../services/')
 /**
@@ -11,7 +15,7 @@ module.exports = (app) => {
 
     app.get('/users', async (req, res, next) => {
         try {
-            authorize(req.tokenData, 'read:any', resource.user)
+            authorize(req.tokenData, action.read.any, resource.user)
             res.status(STATUS_CODES.Success).json(await userServices.get(req.query))
         } catch (err) {
             next(err)
@@ -20,8 +24,8 @@ module.exports = (app) => {
 
     app.get('/users/orders', async (req, res, next) => {
         try {
-            authorize(req.tokenData, 'read:any', resource.order)
-            authorize(req.tokenData, 'read:any', resource.user)
+            authorize(req.tokenData, action.read.any, resource.order)
+            authorize(req.tokenData, action.read.any, resource.user)
             res.status(STATUS_CODES.Success).json(await userServices.getUsersWithOrders(req.query))
         } catch (err) {
             next(err)
@@ -30,7 +34,7 @@ module.exports = (app) => {
 
     app.get('/users/:id', async (req, res, next) => {
         try {
-            authorize(req.tokenData, 'read:any', resource.user)
+            authorize(req.tokenData, action.read.any, resource.user)
             let result = await userServices.getById(req.params.id)
             res.status(STATUS_CODES.Success).json(result)
         } catch (err) {
@@ -40,7 +44,7 @@ module.exports = (app) => {
 
     app.post('/users', async (req, res, next) => {
         try {
-            authorize(req.tokenData, 'create:any', resource.user)
+            authorize(req.tokenData, action.create.any, resource.user)
             let user = await validate(userSchema, req.body);
             res.status(STATUS_CODES.Created).json(await userServices.add(user));
         } catch (err) {
@@ -69,7 +73,7 @@ module.exports = (app) => {
 
     app.delete('/users/:userId', async (req, res, next) => {
         try {
-            authorize(req.tokenData, 'delete:any', resource.user)
+            authorize(req.tokenData, action.delete.any, resource.user)
             const userId = req.params.userId
             res.status(STATUS_CODES.Success).json(await userServices.delete(userId))
         } catch (err) {
