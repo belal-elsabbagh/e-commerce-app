@@ -15,7 +15,7 @@ const {productSchema} = require('../validation').validationSchemas
 module.exports = app => {
     app.get('/products', async (req, res, next) => {
         try {
-            authorize(req.tokenData, action.read.any, resource.product)
+            await authorize(req.tokenData, action.read.any, resource.product)
             res.status(STATUS_CODES.Success).json(await productServices.get(req.query))
         } catch (err) {
             next(err)
@@ -24,7 +24,7 @@ module.exports = app => {
 
     app.get('/products/bestseller', async (req, res, next) => {
         try {
-            authorize(req.tokenData, action.read.any, resource.product)
+            await authorize(req.tokenData, action.read.any, resource.product)
             res.status(STATUS_CODES.Success).json(await productServices.getMostOrderedProduct())
         } catch (err) {
             next(err)
@@ -33,7 +33,7 @@ module.exports = app => {
 
     app.post('/products', async (req, res, next) => {
         try {
-            authorize(req.tokenData, action.create.any, resource.product)
+            await authorize(req.tokenData, action.create.any, resource.product)
             let newProduct = await validate(productSchema, req.body)
             res.status(STATUS_CODES.Created).json(await productServices.add(newProduct));
         } catch (err) {

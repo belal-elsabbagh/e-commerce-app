@@ -591,3 +591,109 @@
     }
   }
 },
+{
+  "thrownAt": "2022-09-25T14:42:33.850Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Invalid Bearer token",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-26T10:12:05.353Z",
+  "err": {
+    "errorCode": 422,
+    "message": "Failed to validate",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-26T10:12:23.684Z",
+  "err": {
+    "errorCode": 422,
+    "message": "Failed to validate",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-26T10:12:34.526Z",
+  "err": {
+    "errorCode": 422,
+    "message": "Failed to validate",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-26T10:13:10.321Z",
+  "err": {
+    "errorCode": 422,
+    "message": "Failed to validate",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-26T10:13:12.386Z",
+  "err": {
+    "errorCode": 422,
+    "message": "Failed to validate",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-26T10:13:20.172Z",
+  "err": {
+    "errorCode": 422,
+    "message": "Failed to validate",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-26T10:13:29.685Z",
+  "err": {
+    "errorCode": 422,
+    "message": "Failed to validate",
+    "details": {}
+  }
+},
+{
+  "thrownAt": "2022-09-26T10:15:24.449Z",
+  "err": {
+    "errorCode": 422,
+    "message": "Failed to validate",
+    "details": {
+      "message": "\"password\" length must be at least 8 characters long",
+      "path": [
+        "password"
+      ],
+      "type": "string.min",
+      "context": {
+        "limit": 8,
+        "value": "123678",
+        "label": "password",
+        "key": "password"
+      }
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-26T10:18:59.902Z",
+  "err": {
+    "errorCode": 401,
+    "message": "Incorrect Credentials to login",
+    "details": {
+      "status": "none"
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-26T10:27:29.973Z",
+  "err": {
+    "errorCode": 403,
+    "message": "User 6320c32c31eac21a8df4139e does not have permission to create any productCategory",
+    "details": {
+      "status": "none"
+    }
+  }
+},

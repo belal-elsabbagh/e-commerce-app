@@ -28,6 +28,7 @@ try {
     app.listen(config.server.port, config.server.host)
     console.log(`Server started on http://${config.server.host}:${config.server.port}`)
 } catch (err) {
+    console.log('GLOBAL CATCH')
     logObjectToFile(err, __dirname + '/log/errors.log')
     process.exit(STATUS_CODES.Default)
 }

@@ -19,7 +19,7 @@ module.exports = app => {
 
     app.get('/orders', async (req, res, next) => {
         try {
-            authorize(req.tokenData, action.read.any, resource.order)
+            await authorize(req.tokenData, action.read.any, resource.order)
             res.status(STATUS_CODES.Success).json(await orderServices.get(req.query))
         } catch (err) {
             next(err)
@@ -28,7 +28,7 @@ module.exports = app => {
 
     app.get('/users/:userId/orders', async (req, res, next) => {
         try {
-            authorize(req.tokenData, action.read.own, resource.order, req.params.userId)
+            await authorize(req.tokenData, action.read.own, resource.order, req.params.userId)
             res.status(STATUS_CODES.Success).json(await orderServices.get({userId: toObjectId(req.params.userId)}))
         } catch (err) {
             next(err)
@@ -37,7 +37,7 @@ module.exports = app => {
 
     app.post('/users/:userId/orders', async (req, res, next) => {
         try {
-            authorize(req.tokenData, action.create.own, resource.order, req.params.userId)
+            await authorize(req.tokenData, action.create.own, resource.order, req.params.userId)
             const parsedOrderData = {
                 userId: req.params.userId,
                 products: req.body.products,
@@ -52,7 +52,7 @@ module.exports = app => {
 
     app.delete('/users/:userId/orders/:id', async (req, res, next) => {
         try {
-            authorize(req.tokenData, action.delete.own, resource.order, req.params.userId)
+            await authorize(req.tokenData, action.delete.own, resource.order, req.params.userId)
             const orderId = req.params.id;
             const userId = req.params.userId;
             res.status(STATUS_CODES.Success).json(await orderServices.deleteOwnOrder(orderId, userId));

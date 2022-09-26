@@ -18,6 +18,7 @@ module.exports.validate = async (schemaObject, objectToValidate) => {
     try {
         return await schemaObject.validateAsync(objectToValidate)
     } catch (err) {
-        throw new ValidationError(`Failed to validate`, err.details)
+        console.log(err.details[0])
+        throw new ValidationError(`Failed to validate`, err.details[0])
     }
 }
