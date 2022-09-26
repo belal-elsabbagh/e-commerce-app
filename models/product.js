@@ -22,8 +22,7 @@ productSchema.pre('save', async function () {
 productSchema.statics.getTotalPriceOfProducts = async function (products) {
     let totalPrice = products.reduce((total, product) => {
         return total + product.price
-    }, -1)
-    if (totalPrice === -1) throw new InternalServerError('Failed to calculate price.')
+    }, 0)
     return totalPrice;
 }
 
