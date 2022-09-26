@@ -697,3 +697,13 @@
     }
   }
 },
+{
+  "thrownAt": "2022-09-26T10:33:48.863Z",
+  "err": {
+    "errorCode": 403,
+    "message": "ID '6320c32c31eac21a8df4139e' does not match your authentication data",
+    "details": {
+      "status": "none"
+    }
+  }
+},

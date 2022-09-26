@@ -2107,3 +2107,51 @@
     "name": "utensils"
   }
 },
+{
+  "receivedAt": "2022-09-26T10:33:48.858Z",
+  "method": "POST",
+  "originalUrl": "/users/6320c32c31eac21a8df4139e/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMxZjE4NzYyMDcxYzZiNjU2ODU4NjVhIiwiZW1haWwiOiJiZWxhbEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMDk1NzcxMDc5LCJleHAiOjE2NjMwOTU3NzQ2Nzl9.otielkvJ9zCYE3si5fkxHAbtuYDOteoiAClpNTr3ptc",
+  "body": {
+    "products": [
+      "6320c9d2d2a2b56cf7c2a9c8"
+    ],
+    "shippingAddress": "123 Main street"
+  }
+},
+{
+  "receivedAt": "2022-09-26T10:33:59.049Z",
+  "method": "POST",
+  "originalUrl": "/users/6320c32c31eac21a8df4139e/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMyMGMzMmMzMWVhYzIxYThkZjQxMzllIiwiZW1haWwiOiJtYXhAZ21haWwuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNjY0MTg3NTQ2NDAyLCJleHAiOjE2NjQxODc1NTAwMDJ9.GLb7zexpOTVmap9zJTJCv8026EE2yDg82_QEHHZ81UU",
+  "body": {
+    "products": [
+      "6320c9d2d2a2b56cf7c2a9c8"
+    ],
+    "shippingAddress": "123 Main street"
+  }
+},
+{
+  "receivedAt": "2022-09-26T10:35:33.866Z",
+  "method": "POST",
+  "originalUrl": "/users/6320c32c31eac21a8df4139e/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMyMGMzMmMzMWVhYzIxYThkZjQxMzllIiwiZW1haWwiOiJtYXhAZ21haWwuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNjY0MTg3NTQ2NDAyLCJleHAiOjE2NjQxODc1NTAwMDJ9.GLb7zexpOTVmap9zJTJCv8026EE2yDg82_QEHHZ81UU",
+  "body": {
+    "products": [
+      "6320c9d2d2a2b56cf7c2a9c8"
+    ],
+    "shippingAddress": "123 Main street"
+  }
+},
+{
+  "receivedAt": "2022-09-26T10:38:38.042Z",
+  "method": "POST",
+  "originalUrl": "/users/6320c32c31eac21a8df4139e/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMyMGMzMmMzMWVhYzIxYThkZjQxMzllIiwiZW1haWwiOiJtYXhAZ21haWwuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNjY0MTg3NTQ2NDAyLCJleHAiOjE2NjQxODc1NTAwMDJ9.GLb7zexpOTVmap9zJTJCv8026EE2yDg82_QEHHZ81UU",
+  "body": {
+    "products": [
+      "6320c9d2d2a2b56cf7c2a9c8"
+    ],
+    "shippingAddress": "123 Main street"
+  }
+},

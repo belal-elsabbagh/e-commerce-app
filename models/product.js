@@ -14,9 +14,9 @@ let productSchema = new mongoose.Schema({
 })
 
 productSchema.pre('save', async function () {
-    let result = categoryModel.findById(this.categoryId);
+    let result = categoryModel.findById(this.category);
     if (result === null) throw new NotFoundError(`No category was found having this id.`, {id: this.categoryId})
-    this.categoryId = toObjectIdOfModel(categoryModel, this.categoryId)
+    this.category = toObjectIdOfModel(categoryModel, this.category)
 })
 
 productSchema.statics.getTotalPriceOfProducts = async function (products) {
