@@ -20,8 +20,8 @@ productSchema.pre('save', async function () {
 })
 
 productSchema.statics.getTotalPriceOfProducts = async function (products) {
-    let totalPrice = products.reduce((total, product) => {
-        return total + product.price
+    let totalPrice = products.reduce((total, i) => {
+        return total + (i.product.price * i.quantity)
     }, 0)
     return totalPrice;
 }

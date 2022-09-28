@@ -707,3 +707,97 @@
     }
   }
 },
+{
+  "thrownAt": "2022-09-28T10:27:33.459Z",
+  "err": {
+    "errorCode": 422,
+    "message": "Failed to validate",
+    "details": {
+      "message": "\"products[0].product\" must be of type object",
+      "path": [
+        "products",
+        0,
+        "product"
+      ],
+      "type": "object.base",
+      "context": {
+        "type": "object",
+        "label": "products[0].product",
+        "value": "6320c9d2d2a2b56cf7c2a9c8",
+        "key": "product"
+      }
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-28T10:28:10.859Z",
+  "err": {
+    "stringValue": "\"{ product: '6320c9d2d2a2b56cf7c2a9c8', quantity: 2 }\"",
+    "valueType": "Object",
+    "kind": "ObjectId",
+    "value": {
+      "product": "6320c9d2d2a2b56cf7c2a9c8",
+      "quantity": 2
+    },
+    "path": "_id",
+    "reason": {},
+    "name": "CastError",
+    "message": "Cast to ObjectId failed for value \"{ product: '6320c9d2d2a2b56cf7c2a9c8', quantity: 2 }\" (type Object) at path \"_id\" for model \"Product\""
+  }
+},
+{
+  "thrownAt": "2022-09-28T10:28:33.777Z",
+  "err": {
+    "stringValue": "\"{ product: '6320c9d2d2a2b56cf7c2a9c8', quantity: 2 }\"",
+    "valueType": "Object",
+    "kind": "ObjectId",
+    "value": {
+      "product": "6320c9d2d2a2b56cf7c2a9c8",
+      "quantity": 2
+    },
+    "path": "_id",
+    "reason": {},
+    "name": "CastError",
+    "message": "Cast to ObjectId failed for value \"{ product: '6320c9d2d2a2b56cf7c2a9c8', quantity: 2 }\" (type Object) at path \"_id\" for model \"Product\""
+  }
+},
+{
+  "thrownAt": "2022-09-28T10:29:07.919Z",
+  "err": {
+    "stringValue": "\"{ product: '6320c9d2d2a2b56cf7c2a9c8', quantity: 2 }\"",
+    "valueType": "Object",
+    "kind": "ObjectId",
+    "value": {
+      "product": "6320c9d2d2a2b56cf7c2a9c8",
+      "quantity": 2
+    },
+    "path": "_id",
+    "reason": {},
+    "name": "CastError",
+    "message": "Cast to ObjectId failed for value \"{ product: '6320c9d2d2a2b56cf7c2a9c8', quantity: 2 }\" (type Object) at path \"_id\" for model \"Product\""
+  }
+},
+{
+  "thrownAt": "2022-09-28T10:30:04.408Z",
+  "err": {}
+},
+{
+  "thrownAt": "2022-09-28T10:30:51.287Z",
+  "err": {}
+},
+{
+  "thrownAt": "2022-09-28T10:30:56.214Z",
+  "err": {}
+},
+{
+  "thrownAt": "2022-09-28T10:31:13.330Z",
+  "err": {}
+},
+{
+  "thrownAt": "2022-09-28T10:36:48.764Z",
+  "err": {}
+},
+{
+  "thrownAt": "2022-09-28T10:37:44.738Z",
+  "err": {}
+},
