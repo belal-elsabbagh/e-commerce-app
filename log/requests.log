@@ -2455,3 +2455,17 @@
     "shippingAddress": "123 Main street"
   }
 },
+{
+  "receivedAt": "2022-09-28T10:55:05.595Z",
+  "method": "POST",
+  "originalUrl": "/users/6320c32c31eac21a8df4139e/orders",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjMyMGMzMmMzMWVhYzIxYThkZjQxMzllIiwiZW1haWwiOiJtYXhAZ21haWwuY29tIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNjY0MTg3NTQ2NDAyLCJleHAiOjE2NjQxODc1NTAwMDJ9.GLb7zexpOTVmap9zJTJCv8026EE2yDg82_QEHHZ81UU",
+  "body": {
+    "products": [
+      {
+        "product": "6320c9d2d2a2b56cf7c2a9c8"
+      }
+    ],
+    "shippingAddress": "123 Main street"
+  }
+},
