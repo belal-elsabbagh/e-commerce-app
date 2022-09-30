@@ -16,7 +16,6 @@ class OrderServices extends BaseService {
                 quantity: i.quantity
             }
         }))
-        console.log(orderObject.products)
         return this.model.create(orderObject)
     }
 

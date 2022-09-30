@@ -1,5 +1,5 @@
 const {InternalServerError, NotFoundError, InvalidDuplicateEntryError} = require('../errors');
-const {constants: {STATUS_CODES}} = require('../config')
+const {constants: {STATUS_CODES, PAGINATION_DEFAULT_VALUES}} = require('../config')
 
 module.exports = class BaseService {
     constructor(model) {
@@ -29,8 +29,8 @@ module.exports = class BaseService {
      * @param {Object} filter
      * @returns {Promise<*>}
      */
-    async get(filter = {}) {
-        let object = await this.model.find(filter)
+    async get(filter = {}, fields = null, paging = PAGINATION_DEFAULT_VALUES) {
+        let object = await this.model.find(filter, fields, {skip: paging.page * paging.limit, limit: paging.limit})
         if (object.length === 0) {
             const objectName = this.model.collection.collectionName
             throw new NotFoundError(`No ${objectName} was found having ${JSON.stringify(filter)}`, filter)

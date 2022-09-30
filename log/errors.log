@@ -801,3 +801,81 @@
   "thrownAt": "2022-09-28T10:37:44.738Z",
   "err": {}
 },
+{
+  "thrownAt": "2022-09-30T20:09:54.211Z",
+  "err": {
+    "errorCode": 404,
+    "message": "No Order was found having {\"page\":\"15\",\"size\":\"4\"}",
+    "details": {
+      "failedQuery": {
+        "page": "15",
+        "size": "4"
+      }
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-30T20:10:11.660Z",
+  "err": {
+    "errorCode": 404,
+    "message": "No Order was found having {\"page\":\"14\",\"size\":\"4\"}",
+    "details": {
+      "failedQuery": {
+        "page": "14",
+        "size": "4"
+      }
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-30T20:10:15.464Z",
+  "err": {
+    "errorCode": 404,
+    "message": "No Order was found having {\"page\":\"12\",\"size\":\"4\"}",
+    "details": {
+      "failedQuery": {
+        "page": "12",
+        "size": "4"
+      }
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-30T20:11:20.712Z",
+  "err": {
+    "errorCode": 404,
+    "message": "No Order was found having {\"page\":\"12\",\"size\":\"4\"}",
+    "details": {
+      "failedQuery": {
+        "page": "12",
+        "size": "4"
+      }
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-30T20:15:33.197Z",
+  "err": {
+    "errorCode": 404,
+    "message": "No Order was found having {\"page\":\"3\",\"size\":10}",
+    "details": {
+      "failedQuery": {
+        "page": "3",
+        "size": 10
+      }
+    }
+  }
+},
+{
+  "thrownAt": "2022-09-30T20:15:39.458Z",
+  "err": {
+    "errorCode": 404,
+    "message": "No Order was found having {\"page\":\"2\",\"size\":10}",
+    "details": {
+      "failedQuery": {
+        "page": "2",
+        "size": 10
+      }
+    }
+  }
+},

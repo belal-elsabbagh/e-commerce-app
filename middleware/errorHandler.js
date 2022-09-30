@@ -4,6 +4,5 @@ module.exports = async (err, req, res, next) => {
         thrownAt: new Date().toISOString(),
         err
     });
-console.log(err)
     res.status(err.code || 500).json(err);
 }

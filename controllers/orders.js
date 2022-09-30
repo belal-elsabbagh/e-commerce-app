@@ -20,7 +20,7 @@ module.exports = app => {
     app.get('/orders', async (req, res, next) => {
         try {
             await authorize(req.tokenData, action.read.any, resource.order)
-            res.status(STATUS_CODES.Success).json(await orderServices.get(req.query))
+            res.status(STATUS_CODES.Success).json(await orderServices.get(req.query, null, {page: req.query.page, limit: req.query.limit}))
         } catch (err) {
             next(err)
         }
@@ -29,7 +29,10 @@ module.exports = app => {
     app.get('/users/:userId/orders', async (req, res, next) => {
         try {
             await authorize(req.tokenData, action.read.own, resource.order, req.params.userId)
-            res.status(STATUS_CODES.Success).json(await orderServices.get({userId: toObjectId(req.params.userId)}))
+            res.status(STATUS_CODES.Success).json(await orderServices.get({
+                ...req.query,
+                userId: toObjectId(req.params.userId)
+            }, null, {page: req.query.page, limit: req.query.limit}))
         } catch (err) {
             next(err)
         }

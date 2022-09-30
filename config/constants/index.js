@@ -47,21 +47,26 @@ const constants = {
 
     RESOURCE_ACCESS_ACTIONS: {
         read: {
-            any: "read:any",
-            own: "read:own"
+            any: 'read:any',
+            own: 'read:own'
         },
         update: {
-            any: "update:any",
-            own: "update:own"
+            any: 'update:any',
+            own: 'update:own'
         },
         create: {
-            any: "create:any",
-            own: "create:own"
+            any: 'create:any',
+            own: 'create:own'
         },
         delete: {
-            any: "delete:any",
-            own: "delete:own"
+            any: 'delete:any',
+            own: 'delete:own'
         },
+    },
+
+    PAGINATION_DEFAULT_VALUES: {
+        page: 0,
+        limit: 10
     }
 }
 Object.freeze(constants)

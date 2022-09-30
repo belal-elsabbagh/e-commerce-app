@@ -16,7 +16,7 @@ module.exports = app => {
     app.get('/categories', async (req, res, next) => {
         try {
             await authorize(req.tokenData, action.read.any, resource.product)
-            res.status(STATUS_CODES.Success).json(await categoryServices.get(req.query))
+            res.status(STATUS_CODES.Success).json(await categoryServices.get(req.query, null, {page: req.query.skip, limit: req.query.limit}))
         } catch (err) {
             next(err)
         }

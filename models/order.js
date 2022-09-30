@@ -26,7 +26,6 @@ orderSchema.pre('save', async function (next) {
     let order = this;
     order.userId = await toObjectIdOfModel(userModel, order.userId)
     order.totalPrice = await productModel.getTotalPriceOfProducts(order.products);
-    console.log(order.totalPrice)
     next();
 })
 

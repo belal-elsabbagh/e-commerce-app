@@ -9,7 +9,8 @@ const {
 const {
     errorHandler,
     requestLogger,
-    authenticateBearerToken
+    authenticateBearerToken,
+    paginationDefaultValues
 } = require('./middleware');
 const { STATUS_CODES } = require('./config/constants');
 const bodyParser = require('body-parser').json({})
@@ -20,6 +21,7 @@ try {
     app.use(requestLogger)
     // Deactivate to test the api without authentication
     app.use(authenticateBearerToken)
+    app.use(paginationDefaultValues)
     usersController(app)
     productsController(app)
     ordersController(app)
