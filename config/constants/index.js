@@ -65,8 +65,8 @@ const constants = {
     },
 
     PAGINATION_DEFAULT_VALUES: {
-        page: 0,
-        limit: 10
+        page: null,
+        limit: null
     }
 }
 Object.freeze(constants)

@@ -1,5 +1,5 @@
-const {InternalServerError, NotFoundError, InvalidDuplicateEntryError} = require('../errors');
-const {constants: {STATUS_CODES, PAGINATION_DEFAULT_VALUES}} = require('../config')
+const { InternalServerError, NotFoundError, InvalidDuplicateEntryError } = require('../errors');
+const { constants: { STATUS_CODES, PAGINATION_DEFAULT_VALUES } } = require('../config')
 
 module.exports = class BaseService {
     constructor(model) {
@@ -30,12 +30,36 @@ module.exports = class BaseService {
      * @returns {Promise<*>}
      */
     async get(filter = {}, fields = null, paging = PAGINATION_DEFAULT_VALUES) {
-        let object = await this.model.find(filter, fields, {skip: paging.page * paging.limit, limit: paging.limit})
+        const page = parseInt(paging.page, 10)
+        const limit = parseInt(paging.limit, 10)
+
+        const startIndex = (page - 1) * limit
+        const endIndex = page * limit
+
+        const response = {}
+
+        if (endIndex < await this.model.countDocuments().exec()) {
+            response.next = {
+                page: page + 1,
+                limit
+            }
+        }
+
+        if (startIndex > 0) {
+            response.previous = {
+                page: page - 1,
+                limit
+            }
+        }
+        let object = await this.model.find(filter, fields).limit(limit).skip(startIndex)
         if (object.length === 0) {
             const objectName = this.model.collection.collectionName
             throw new NotFoundError(`No ${objectName} was found having ${JSON.stringify(filter)}`, filter)
         }
-        return object
+        return {
+            ...response,
+            results: object
+        }
     }
 
     /**
@@ -45,7 +69,7 @@ module.exports = class BaseService {
      */
     async getById(id) {
         let object = await this.model.findById(id)
-        if (!object) throw new NotFoundError(`Nothing was found with id '${id}'.`, {id})
+        if (!object) throw new NotFoundError(`Nothing was found with id '${id}'.`, { id })
         return object
     }
 
@@ -57,7 +81,7 @@ module.exports = class BaseService {
      */
     async update(id, updates) {
         await this.getById(id);
-        return this.model.findByIdAndUpdate(id, updates, {new: true})
+        return this.model.findByIdAndUpdate(id, updates, { new: true })
     }
 
     /**
