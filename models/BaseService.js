@@ -24,21 +24,15 @@ module.exports = class BaseService {
         }
     }
 
-    /**
-     * @throws {NotFoundError}
-     * @param {Object} filter
-     * @returns {Promise<*>}
-     */
-    async get(filter = {}, fields = null, paging = PAGINATION_DEFAULT_VALUES) {
-        const page = parseInt(paging.page, 10)
-        const limit = parseInt(paging.limit, 10)
-
+    async _paginatedResponse(page, limit) {
+        let queryOptions = null
         const startIndex = (page - 1) * limit
+        queryOptions =  {limit,skip: startIndex}
         const endIndex = page * limit
 
-        const response = {}
-
-        if (endIndex < await this.model.countDocuments().exec()) {
+        const documentCount = await this.model.countDocuments().exec()
+        let response = {pageCount: Math.ceil(documentCount / limit)}
+        if (endIndex < documentCount) {
             response.next = {
                 page: page + 1,
                 limit
@@ -51,7 +45,23 @@ module.exports = class BaseService {
                 limit
             }
         }
-        let object = await this.model.find(filter, fields).limit(limit).skip(startIndex)
+        return {response, queryOptions}
+    }
+
+    /**
+     * @throws {NotFoundError}
+     * @param {Object} filter
+     * @returns {Promise<*>}
+     */
+    async get(filter = {}, fields = null, paging = null) {
+        let response = {}
+        let queryOptions = null
+        if (paging !== null) { 
+            const paginatedResponse = await this._paginatedResponse(paging.page, paging.limit)
+            response = paginatedResponse.response
+            queryOptions = paginatedResponse.queryOptions
+        }
+        let object = await this.model.find(filter, fields, queryOptions)
         if (object.length === 0) {
             const objectName = this.model.collection.collectionName
             throw new NotFoundError(`No ${objectName} was found having ${JSON.stringify(filter)}`, filter)

@@ -16,7 +16,7 @@ module.exports = app => {
     app.get('/products', async (req, res, next) => {
         try {
             await authorize(req.tokenData, action.read.any, resource.product)
-            res.status(STATUS_CODES.Success).json(await productServices.get(req.query, null, {page: req.query.skip, limit: req.query.limit}))
+            res.status(STATUS_CODES.Success).json(await productServices.get(req.query, null, {page: req.query.page, limit: req.query.limit}))
         } catch (err) {
             next(err)
         }

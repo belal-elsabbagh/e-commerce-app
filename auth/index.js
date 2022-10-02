@@ -1,16 +1,8 @@
 const ac = require('./accessControl')
-const {ForbiddenError} = require('../errors');
+const { ForbiddenError } = require('../errors');
 
-function idErrorMessage(userId) {
-    return `ID '${userId}' does not match your authentication data`
-}
-
-function permissionErrorMessage(userTokenData, action, resource) {
-    return `User ${userTokenData.user.id} does not have permission to ${action.replace(/:/, ' ')} ${resource}`
-}
-
-function getPermission(role, action, resource) {
-    return ac.permission({role, action, resource}).granted
+function isPermissionGranted(role, action, resource) {
+    return ac.permission({ role, action, resource }).granted
 }
 
 /**
@@ -19,8 +11,8 @@ function getPermission(role, action, resource) {
  * @param {String|null} userId
  * @returns {boolean}
  */
-function invalidId(userTokenData, userId) {
-    return userTokenData.user.id !== userId && userId !== null
+function idIsInvalid(validId, userId) {
+    return validId !== userId && userId !== null
 }
 
 /**
@@ -33,10 +25,14 @@ function invalidId(userTokenData, userId) {
  * @returns {boolean} true if the user has the permission
  */
 module.exports = async (userTokenData, action, resource, userId = null) => {
-    const {role} = userTokenData.user
-    const invalidIdCheck = invalidId(userTokenData, userId)
-    if (invalidIdCheck) throw new ForbiddenError(idErrorMessage(userId))
-    const permissionCheck = getPermission(role, action, resource)
-    if (!permissionCheck) throw new ForbiddenError(permissionErrorMessage(userTokenData, action, resource))
-    return true
+    const { role, validId } = userTokenData.user
+    if (idIsInvalid(validId, userId)) { 
+        const msg = `ID '${userId}' does not match your authentication data`
+        throw new ForbiddenError(msg) 
+    }
+    if (!isPermissionGranted(role, action, resource)) { 
+        const errMsg = `User ${validId} does not have permission to ${action.replace(/:/, ' ')} ${resource}`
+        throw new ForbiddenError(errMsg)
+    }
+    return new Promise(function (resolve, reject) { resolve(true); })
 }
