@@ -56,7 +56,7 @@ module.exports = class BaseService {
     async get(filter = {}, fields = null, paging = null) {
         let response = {}
         let queryOptions = null
-        if (paging !== null) { 
+        if (paging !== null) {
             const paginatedResponse = await this._paginatedResponse(paging.page, paging.limit)
             response = paginatedResponse.response
             queryOptions = paginatedResponse.queryOptions
