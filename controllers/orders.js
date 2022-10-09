@@ -20,7 +20,8 @@ module.exports = app => {
     app.get('/orders', async (req, res, next) => {
         try {
             await authorize(req.tokenData, action.read.any, resource.order)
-            res.status(STATUS_CODES.Success).json(await orderServices.get(req.query, null, {page: req.query.page, limit: req.query.limit}))
+            const {page, limit} = req.query
+            res.status(STATUS_CODES.Success).json(await orderServices.get(req.query, null, {page, limit}))
         } catch (err) {
             next(err)
         }
