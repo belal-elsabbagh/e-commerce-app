@@ -1,13 +1,13 @@
-const {signupSchema, loginSchema} = require('../validation/').validationSchemas.userSchemas
+const { signupSchema, loginSchema } = require('../validation/').validationSchemas.userSchemas
 const {
     STATUS_CODES
 } = require('../config/constants');
-const {auth} = require('../services')
-module.exports = function(app) {
-      app.post('/signup', async (req, res, next) => {
+const { authServices, userServices } = require('../services')
+module.exports = function (app) {
+    app.post('/signup', async (req, res, next) => {
         try {
             let user = await validate(signupSchema, req.body);
-            res.status(STATUS_CODES.Created).json(await auth.add(user));
+            res.status(STATUS_CODES.Created).json(await userServices.add(user));
         } catch (err) {
             next(err)
         }
@@ -16,7 +16,7 @@ module.exports = function(app) {
     app.post('/login', async (req, res, next) => {
         try {
             let user = await validate(loginSchema, req.body);
-            res.status(STATUS_CODES.Success).json(await auth.login(user));
+            res.status(STATUS_CODES.Success).json(await authServices.login(user));
         } catch (err) {
             next(err)
         }
