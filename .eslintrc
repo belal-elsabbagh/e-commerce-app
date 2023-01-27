@@ -1,0 +1,4 @@
+{
+  "extends": ["prettier", "plugin:prettier/recommended"],
+  "indent": [2, 4]
+}

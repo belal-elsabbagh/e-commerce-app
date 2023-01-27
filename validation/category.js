@@ -1,4 +1,4 @@
 const Joi = require('joi');
 module.exports = new Joi.object({
-    name: Joi.string().required(),
-})
+  name: Joi.string().required(),
+});

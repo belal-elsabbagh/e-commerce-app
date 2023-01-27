@@ -1,11 +1,11 @@
-const { ValidationError } = require('../errors')
+const { ValidationError } = require('../errors');
 
 module.exports.validationSchemas = {
-    userSchemas: require('./user'),
-    productSchema: require('./product'),
-    orderSchema: require('./order'),
-    categorySchema: require('./category')
-}
+  userSchemas: require('./user'),
+  productSchema: require('./product'),
+  orderSchema: require('./order'),
+  categorySchema: require('./category'),
+};
 
 /**
  *
@@ -15,9 +15,9 @@ module.exports.validationSchemas = {
  * @returns
  */
 module.exports.validate = async (schemaObject, objectToValidate) => {
-    try {
-        return await schemaObject.validateAsync(objectToValidate)
-    } catch (err) {
-        throw new ValidationError(`Failed to validate`, err.details[0])
-    }
-}
+  try {
+    return await schemaObject.validateAsync(objectToValidate);
+  } catch (err) {
+    throw new ValidationError(`Failed to validate`, err.details[0]);
+  }
+};

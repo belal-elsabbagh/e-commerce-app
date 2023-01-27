@@ -1,5 +1,5 @@
-const { userService } = require('./user')
-const { NotAuthenticatedError, InternalServerError } = require('../errors')
+const { userService } = require('./user');
+const { NotAuthenticatedError, InternalServerError } = require('../errors');
 
 class AuthServices {
   /**
@@ -13,16 +13,18 @@ class AuthServices {
       return await userService.get(userObject);
     } catch (err) {
       if (err.code === 404) throw new NotAuthenticatedError('Incorrect Credentials to login');
-      throw new InternalServerError("An unexpected error has occured while logging in.")
+      throw new InternalServerError('An unexpected error has occured while logging in.');
     }
   }
 
   async login(userCredentials) {
+    const user = this._runLoginQuery(userCredentials);
+
     return {
+      user,
       token: this.model.generateToken(user),
-      user: await this._runLoginQuery(userCredentials)
-    }
+    };
   }
 }
 
-module.exports = new AuthServices()
+module.exports = new AuthServices();
