@@ -1,6 +1,7 @@
 const config = require('./config')
 const express = require('express');
 const {
+    authController,
     usersController,
     productsController,
     ordersController,
@@ -22,6 +23,7 @@ try {
     // Deactivate to test the api without authentication
     app.use(authenticateBearerToken)
     app.use(paginationDefaultValues)
+    authController(app)
     usersController(app)
     productsController(app)
     ordersController(app)
